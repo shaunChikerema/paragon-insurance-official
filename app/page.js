@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Phone, MessageCircle, Clock, Users, CheckCircle, ArrowRight, Shield, Award, TrendingUp, ChevronLeft, ChevronRight, Menu, X, Star } from 'lucide-react';
+import Link from 'next/link';
+import { ChevronDown, Phone, MessageCircle, Clock, Users, CheckCircle, ArrowRight, Shield, ChevronLeft, ChevronRight, Menu, X, Star } from 'lucide-react';
 
 export default function ParagonHomepage() {
   const [expandedProvider, setExpandedProvider] = useState(null);
@@ -24,7 +25,8 @@ export default function ParagonHomepage() {
       title: "Compare Life Insurance from",
       titleAccent: "Botswana's Top Providers",
       subtitle: "Get personalized quotes from Metropolitan, Botswana Life, Hollard, and Bonna Life",
-      cta: "Request Free Quote"
+      cta: "Request Free Quote",
+      gradientOpacity: "from-[#1A4D6D]/90 via-[#00A3E0]/65 to-[#00B8D4]/55"
     },
     {
       id: 2,
@@ -32,7 +34,8 @@ export default function ParagonHomepage() {
       title: "Get Your Quote Within",
       titleAccent: "1 Hour",
       subtitle: "Fast, professional service from Botswana's most trusted insurance broker",
-      cta: "Get Started Now"
+      cta: "Get Started Now",
+      gradientOpacity: "from-[#1A4D6D]/70 via-[#00A3E0]/45 to-[#00B8D4]/35"
     },
     {
       id: 3,
@@ -40,7 +43,8 @@ export default function ParagonHomepage() {
       title: "Join",
       titleAccent: "Protected Families Across Botswana",
       subtitle: "Trusted by families nationwide for expert insurance guidance",
-      cta: "Join Them Today"
+      cta: "Join Them Today",
+      gradientOpacity: "from-[#1A4D6D]/85 via-[#00A3E0]/60 to-[#00B8D4]/50"
     },
     {
       id: 4,
@@ -48,7 +52,8 @@ export default function ParagonHomepage() {
       title: "Free Quotes",
       titleAccent: "No Obligation",
       subtitle: "Compare options, make informed decisions, protect what matters most",
-      cta: "Compare Now"
+      cta: "Compare Now",
+      gradientOpacity: "from-[#1A4D6D]/85 via-[#00A3E0]/60 to-[#00B8D4]/50"
     }
   ];
 
@@ -114,7 +119,6 @@ export default function ParagonHomepage() {
     }
   ];
 
-  // Smooth scroll function
   const smoothScroll = (targetId) => {
     const element = document.getElementById(targetId);
     if (element) {
@@ -123,7 +127,6 @@ export default function ParagonHomepage() {
     }
   };
 
-  // Handle quote form submission
   const handleQuoteSubmit = (e) => {
     e.preventDefault();
     const whatsappMessage = `Hi, I'd like a quote!%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AProvider: ${formData.provider || 'Any'}%0AMessage: ${formData.message}`;
@@ -132,7 +135,6 @@ export default function ParagonHomepage() {
     setFormData({ name: '', phone: '', email: '', provider: '', message: '' });
   };
 
-  // Auto-advance carousel
   useEffect(() => {
     if (!isAutoPlaying) return;
     
@@ -272,10 +274,10 @@ export default function ParagonHomepage() {
         </div>
       </div>
 
-      {/* Header */}
+      {/* Header - Simple Navigation */}
       <header className="bg-white shadow-lg sticky top-0 z-40 border-b border-[#00A3E0]/20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
             <div className="relative group">
               <div className="w-14 h-14 bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all">
                 <div className="w-9 h-9 border-4 border-white rounded-full"></div>
@@ -288,29 +290,28 @@ export default function ParagonHomepage() {
               </h1>
               <p className="text-xs text-[#1A4D6D] font-bold uppercase tracking-wider">Insurance Brokers</p>
             </div>
-          </div>
+          </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-8 text-[#1A4D6D] font-semibold">
-            <button onClick={() => smoothScroll('home')} className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
+          <nav className="hidden md:flex gap-8 text-[#1A4D6D] font-semibold items-center">
+            <Link href="/" className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
               Home
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#00A3E0] transition-all"></span>
+            </Link>
+            <Link href="/about" className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
+              About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
-            </button>
+            </Link>
             <button onClick={() => smoothScroll('providers')} className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
               Providers
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
-            </button>
-            <button onClick={() => smoothScroll('how-it-works')} className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
-              How It Works
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
-            </button>
-            <button onClick={() => smoothScroll('testimonials')} className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
-              Testimonials
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
             </button>
             <button onClick={() => smoothScroll('contact')} className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
+            </button>
+            <button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-md hover:shadow-lg hover:scale-105">
+              Get Quote
             </button>
           </nav>
 
@@ -327,17 +328,14 @@ export default function ParagonHomepage() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-[#00A3E0]/20 shadow-lg">
             <nav className="flex flex-col p-4 space-y-3">
-              <button onClick={() => smoothScroll('home')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
+              <Link href="/" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
                 Home
-              </button>
+              </Link>
+              <Link href="/about" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
+                About
+              </Link>
               <button onClick={() => smoothScroll('providers')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
                 Providers
-              </button>
-              <button onClick={() => smoothScroll('how-it-works')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
-                How It Works
-              </button>
-              <button onClick={() => smoothScroll('testimonials')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
-                Testimonials
               </button>
               <button onClick={() => smoothScroll('contact')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
                 Contact
@@ -356,7 +354,7 @@ export default function ParagonHomepage() {
           {heroSlides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
+              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
                 index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
             >
@@ -367,16 +365,8 @@ export default function ParagonHomepage() {
                   className="w-full h-full object-cover"
                   loading={index === 0 ? "eager" : "lazy"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1A4D6D]/85 via-[#00A3E0]/60 to-[#00B8D4]/50"></div>
+                <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradientOpacity}`}></div>
               </div>
-
-              <div className="absolute inset-0 opacity-10 pointer-events-none">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-[#00B8D4] rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-              </div>
-              
-              <div className="absolute top-10 right-10 w-32 h-32 border-4 border-white/20 rounded-full" style={{animation: 'spin 20s linear infinite'}}></div>
-              <div className="absolute bottom-20 right-40 w-20 h-20 bg-[#00B8D4]/30 rounded-full" style={{animation: 'bounce 3s infinite'}}></div>
               
               <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center py-8">
                 <div className="max-w-3xl" style={{textShadow: '0 2px 8px rgba(0,0,0,0.4)'}}>
@@ -490,13 +480,13 @@ export default function ParagonHomepage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block bg-[#00A3E0]/10 text-[#00A3E0] px-4 py-2 rounded-full text-sm font-bold mb-4">
-              OUR TRUSTED PARTNERS
+              OUR PARTNERS
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#1A4D6D] mb-4">
               Compare <span className="text-[#00A3E0]">Leading Insurers</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Browse products from Botswana's top insurance providers and find the perfect coverage for you and your family
+              We work with Botswana's top insurance providers to find you the perfect coverage
             </p>
           </div>
 
@@ -694,22 +684,22 @@ export default function ParagonHomepage() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Our Providers</h4>
+              <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Our Partners</h4>
               <ul className="space-y-3 text-slate-300">
-                <li className="hover:text-[#00B8D4] transition cursor-pointer hover:translate-x-1">Metropolitan Life</li>
-                <li className="hover:text-[#00B8D4] transition cursor-pointer hover:translate-x-1">Botswana Life</li>
-                <li className="hover:text-[#00B8D4] transition cursor-pointer hover:translate-x-1">Hollard Insurance</li>
-                <li className="hover:text-[#00B8D4] transition cursor-pointer hover:translate-x-1">Bonna Life</li>
+                <li className="hover:text-[#00B8D4] transition">Metropolitan Life</li>
+                <li className="hover:text-[#00B8D4] transition">Botswana Life</li>
+                <li className="hover:text-[#00B8D4] transition">Hollard Insurance</li>
+                <li className="hover:text-[#00B8D4] transition">Bonna Life</li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Quick Links</h4>
               <ul className="space-y-3 text-slate-300">
-                <li><a href="#" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">About Us</a></li>
-                <li><a href="#" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">How It Works</a></li>
-                <li><a href="#" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">FAQs</a></li>
-                <li><a href="#" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Contact</a></li>
+                <li><Link href="/about" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">About Us</Link></li>
+                <li><button onClick={() => smoothScroll('providers')} className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Providers</button></li>
+                <li><button onClick={() => smoothScroll('testimonials')} className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Testimonials</button></li>
+                <li><button onClick={() => smoothScroll('contact')} className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Contact</button></li>
               </ul>
             </div>
 
@@ -717,9 +707,9 @@ export default function ParagonHomepage() {
               <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Contact Us</h4>
               <ul className="space-y-3 text-slate-300">
                 <li>Gaborone, Botswana</li>
-                <li className="hover:text-[#00B8D4] transition cursor-pointer">+267 36 23 700</li>
-                <li className="hover:text-[#00B8D4] transition cursor-pointer">+267 75 257 556</li>
-                <li className="hover:text-[#00B8D4] transition cursor-pointer">info@paragoninsurance.bw</li>
+                <li><a href="tel:+26736237000" className="hover:text-[#00B8D4] transition">+267 36 23 700</a></li>
+                <li><a href="https://wa.me/26775257556" className="hover:text-[#00B8D4] transition">+267 75 257 556</a></li>
+                <li><a href="mailto:info@paragoninsurance.bw" className="hover:text-[#00B8D4] transition">info@paragoninsurance.bw</a></li>
               </ul>
             </div>
           </div>
