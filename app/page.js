@@ -18,10 +18,22 @@ export default function ParagonHomepage() {
     message: ''
   });
 
+  // Helper function to generate responsive image attributes
+  const getResponsiveImage = (filename) => ({
+    src: `/images/large/${filename}`,
+    srcSet: `
+      /images/small/${filename} 400w,
+      /images/medium/${filename} 800w,
+      /images/large/${filename} 1200w,
+      /images/xlarge/${filename} 1920w
+    `,
+    sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, (max-width: 1536px) 1200px, 1920px"
+  });
+
   const heroSlides = [
     {
       id: 1,
-      image: "/images/hero-slide-1.jpg",
+      image: "hero-slide-1.webp",
       title: "Compare Life Insurance from",
       titleAccent: "Botswana's Top Providers",
       subtitle: "Get personalized quotes from Metropolitan, Botswana Life, Hollard, and Bonna Life",
@@ -30,7 +42,7 @@ export default function ParagonHomepage() {
     },
     {
       id: 2,
-      image: "/images/hero-slide-2.jpg",
+      image: "hero-slide-2.webp",
       title: "Get Your Quote Within",
       titleAccent: "1 Hour",
       subtitle: "Fast, professional service from Botswana's most trusted insurance broker",
@@ -39,7 +51,7 @@ export default function ParagonHomepage() {
     },
     {
       id: 3,
-      image: "/images/hero-slide-3.jpg",
+      image: "hero-slide-3.webp",
       title: "Join",
       titleAccent: "Protected Families Across Botswana",
       subtitle: "Trusted by families nationwide for expert insurance guidance",
@@ -48,7 +60,7 @@ export default function ParagonHomepage() {
     },
     {
       id: 4,
-      image: "/images/hero-slide-4.jpg",
+      image: "hero-slide-4.webp",
       title: "Free Quotes",
       titleAccent: "No Obligation",
       subtitle: "Compare options, make informed decisions, protect what matters most",
@@ -62,7 +74,7 @@ export default function ParagonHomepage() {
       id: 1,
       name: "Metropolitan Life",
       tagline: "Comprehensive life coverage",
-      image: "/images/provider-metropolitan.jpg",
+      image: "provider-metropolitan.webp",
       description: "Metropolitan Life offers flexible life insurance solutions with extensive coverage options for you and your family.",
       benefits: ["Flexible payment terms", "Family coverage options", "Cash-back benefits", "Premium holiday options"]
     },
@@ -70,7 +82,7 @@ export default function ParagonHomepage() {
       id: 2,
       name: "Botswana Life",
       tagline: "Protecting Botswana families",
-      image: "/images/provider-botswana.jpg",
+      image: "provider-botswana.webp",
       description: "Leading local insurer with comprehensive family protection plans designed specifically for Botswana.",
       benefits: ["Local expertise", "Extended family coverage", "Funeral cover options", "Retirement planning"]
     },
@@ -78,7 +90,7 @@ export default function ParagonHomepage() {
       id: 3,
       name: "Hollard Insurance",
       tagline: "Insuring you and everything you love",
-      image: "/images/provider-hollard.jpg",
+      image: "provider-hollard.webp",
       description: "Hollard provides innovative insurance solutions with exceptional customer service and flexible benefits.",
       benefits: ["Self-service portal", "Quick claims processing", "Affordable premiums", "Life and savings products"]
     },
@@ -86,7 +98,7 @@ export default function ParagonHomepage() {
       id: 4,
       name: "Bonna Life",
       tagline: "Life insurance simplified",
-      image: "/images/provider-bonna.jpg",
+      image: "provider-bonna.webp",
       description: "Straightforward life insurance with competitive rates and hassle-free application process.",
       benefits: ["Simple application", "Competitive rates", "Fast approval", "Reliable payouts"]
     }
@@ -360,7 +372,7 @@ export default function ParagonHomepage() {
             >
               <div className="absolute inset-0 w-full h-full">
                 <img 
-                  src={slide.image} 
+                  {...getResponsiveImage(slide.image)}
                   alt={slide.title}
                   className="w-full h-full object-cover"
                   loading={index === 0 ? "eager" : "lazy"}
@@ -496,7 +508,7 @@ export default function ParagonHomepage() {
                 <div className="relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:border-[#00A3E0]/30">
                   <div className="relative h-72 overflow-hidden">
                     <img 
-                      src={provider.image} 
+                      {...getResponsiveImage(provider.image)}
                       alt={provider.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
