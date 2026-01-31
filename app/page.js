@@ -36,9 +36,9 @@ export default function ParagonHomepage() {
       image: "hero-slide-1.webp",
       title: "Compare Life Insurance from",
       titleAccent: "Botswana's Top Providers",
-      subtitle: "Get personalized quotes from Metropolitan, Botswana Life, Hollard, and Bonna Life",
+      subtitle: "Get personalized quotes from Metropolitan, Botswana Life, Hollard, and Bona Life",
       cta: "Request Free Quote",
-      gradientOpacity: "from-[#1A4D6D]/90 via-[#00A3E0]/65 to-[#00B8D4]/55"
+      gradientOpacity: "from-slate-900/80 via-slate-900/40 to-transparent"
     },
     {
       id: 2,
@@ -47,16 +47,16 @@ export default function ParagonHomepage() {
       titleAccent: "1 Hour",
       subtitle: "Fast, professional service from Botswana's most trusted insurance broker",
       cta: "Get Started Now",
-      gradientOpacity: "from-[#1A4D6D]/70 via-[#00A3E0]/45 to-[#00B8D4]/35"
+      gradientOpacity: "from-slate-900/75 via-slate-900/35 to-transparent"
     },
     {
       id: 3,
       image: "hero-slide-3.webp",
-      title: "Join",
-      titleAccent: "Protected Families Across Botswana",
-      subtitle: "Trusted by families nationwide for expert insurance guidance",
-      cta: "Join Them Today",
-      gradientOpacity: "from-[#1A4D6D]/85 via-[#00A3E0]/60 to-[#00B8D4]/50"
+      title: "Protect Your Family's",
+      titleAccent: "Future Today",
+      subtitle: "Trusted by families nationwide for expert insurance guidance and personalized service",
+      cta: "Get Protected",
+      gradientOpacity: "from-slate-900/80 via-slate-900/40 to-transparent"
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ export default function ParagonHomepage() {
       titleAccent: "No Obligation",
       subtitle: "Compare options, make informed decisions, protect what matters most",
       cta: "Compare Now",
-      gradientOpacity: "from-[#1A4D6D]/85 via-[#00A3E0]/60 to-[#00B8D4]/50"
+      gradientOpacity: "from-slate-900/75 via-slate-900/35 to-transparent"
     }
   ];
 
@@ -73,61 +73,81 @@ export default function ParagonHomepage() {
     {
       id: 1,
       name: "Metropolitan Life",
-      tagline: "Comprehensive life coverage",
+      tagline: "Trusted life insurance since 1998",
       image: "provider-metropolitan.webp",
-      description: "Metropolitan Life offers flexible life insurance solutions with extensive coverage options for you and your family.",
-      benefits: ["Flexible payment terms", "Family coverage options", "Cash-back benefits", "Premium holiday options"]
+      description: "Part of Momentum Metropolitan Holdings, Metropolitan Life has been serving Botswana families since 1998. As the country's second-largest life insurer, they offer a comprehensive range of life insurance, health, savings, and funeral cover solutions.",
+      benefits: [
+        "Over 25 years of experience in Botswana",
+        "Part of established Momentum Metropolitan Group",
+        "Wide range of life and savings products",
+        "Licensed and regulated by NBFIRA"
+      ]
     },
     {
       id: 2,
       name: "Botswana Life",
-      tagline: "Protecting Botswana families",
+      tagline: "Botswana's largest and oldest life insurer",
       image: "provider-botswana.webp",
-      description: "Leading local insurer with comprehensive family protection plans designed specifically for Botswana.",
-      benefits: ["Local expertise", "Extended family coverage", "Funeral cover options", "Retirement planning"]
+      description: "Founded in 1975, Botswana Life Insurance is the country's oldest and only home-grown life insurance company. With over 75% market share and more than 300,000 policyholders, they are the most trusted name in Botswana life insurance.",
+      benefits: [
+        "Botswana's only indigenous life insurer since 1975",
+        "Market leader with over 75% market share",
+        "Over 300,000 satisfied policyholders",
+        "Comprehensive life, retirement, and investment products"
+      ]
     },
     {
       id: 3,
-      name: "Hollard Insurance",
-      tagline: "Insuring you and everything you love",
+      name: "Hollard Life",
+      tagline: "Innovative life insurance solutions",
       image: "provider-hollard.webp",
-      description: "Hollard provides innovative insurance solutions with exceptional customer service and flexible benefits.",
-      benefits: ["Self-service portal", "Quick claims processing", "Affordable premiums", "Life and savings products"]
+      description: "Established in 2005, Hollard Life Botswana is part of the international Hollard Group. They offer innovative life insurance solutions including their popular Lerako Life Cover with cashback benefits, funeral cover, and group life insurance.",
+      benefits: [
+        "Part of international Hollard Group",
+        "Innovative products with flexible benefits",
+        "Life, funeral, and group insurance options",
+        "Modern digital service platforms"
+      ]
     },
     {
       id: 4,
-      name: "Bonna Life",
-      tagline: "Life insurance simplified",
+      name: "Bona Life",
+      tagline: "Citizen-owned life insurance",
       image: "provider-bonna.webp",
-      description: "Straightforward life insurance with competitive rates and hassle-free application process.",
-      benefits: ["Simple application", "Competitive rates", "Fast approval", "Reliable payouts"]
+      description: "Founded in 2013, Bona Life is Botswana's first indigenous broad-based citizen-owned life insurance company. Owned by BPOPF (Botswana Public Officers Pension Fund), they offer straightforward insurance solutions with competitive rates.",
+      benefits: [
+        "Botswana's first citizen-owned life insurer",
+        "Backed by Botswana Public Officers Pension Fund",
+        "Competitive rates and simple application process",
+        "Focus on accessible insurance for all Batswana"
+      ]
     }
   ];
 
   const testimonials = [
     {
       id: 1,
-      name: "Thabo Moeti",
+      name: "T. M.",
       role: "Business Owner, Gaborone",
-      content: "Paragon helped me find the perfect life insurance policy for my family. The service was professional and they explained everything clearly. Got my quote in under an hour!",
+      content: "Paragon helped me find the perfect life insurance policy for my family. The service was professional and they explained everything clearly. Very satisfied with the quick response!",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+      initials: "TM"
     },
     {
       id: 2,
-      name: "Keitumetse Setlhare",
+      name: "K. S.",
       role: "Teacher, Francistown",
       content: "I was confused about which provider to choose. Paragon compared all options for me and helped me make an informed decision. Highly recommend their services!",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
+      initials: "KS"
     },
     {
       id: 3,
-      name: "Mpho Kgosi",
+      name: "M. K.",
       role: "Engineer, Maun",
       content: "Fast, reliable, and trustworthy. Paragon made getting life insurance simple. Their team is knowledgeable and always available to answer questions.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
+      initials: "MK"
     }
   ];
 
@@ -228,8 +248,8 @@ export default function ParagonHomepage() {
                   <option value="">Any Provider</option>
                   <option value="Metropolitan Life">Metropolitan Life</option>
                   <option value="Botswana Life">Botswana Life</option>
-                  <option value="Hollard Insurance">Hollard Insurance</option>
-                  <option value="Bonna Life">Bonna Life</option>
+                  <option value="Hollard Life">Hollard Life</option>
+                  <option value="Bona Life">Bona Life</option>
                 </select>
               </div>
               <div>
@@ -292,15 +312,22 @@ export default function ParagonHomepage() {
           <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
             <div className="relative group">
               <div className="w-14 h-14 bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all">
-                <div className="w-9 h-9 border-4 border-white rounded-full"></div>
+                <svg viewBox="0 0 100 100" className="w-10 h-10" fill="none">
+                  {/* Simplified person icon */}
+                  <circle cx="50" cy="35" r="8" fill="#0A5F7D" />
+                  {/* Diamond shape */}
+                  <path d="M50 45 L65 60 L50 75 L35 60 Z" fill="white" stroke="#0A5F7D" strokeWidth="2" />
+                  {/* Triangle */}
+                  <path d="M70 75 L85 75 L77.5 60 Z" fill="white" />
+                </svg>
               </div>
-              <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#00B8D4] rounded-full shadow-md"></div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] bg-clip-text text-transparent tracking-tight">
+              <h1 className="text-2xl font-bold text-[#00A3E0] tracking-tight">
                 Paragon
               </h1>
-              <p className="text-xs text-[#1A4D6D] font-bold uppercase tracking-wider">Insurance Brokers</p>
+              <p className="text-xs text-[#0A5F7D] font-bold uppercase tracking-wider">Insurance Brokers</p>
+              <p className="text-[10px] text-slate-500 italic -mt-0.5">You are in safe hands</p>
             </div>
           </Link>
           
@@ -360,7 +387,7 @@ export default function ParagonHomepage() {
         )}
       </header>
 
-      {/* Hero Carousel Section */}
+      {/* Hero Carousel Section - FIXED LAYOUT */}
       <section id="home" className="relative text-white overflow-hidden">
         <div className="relative w-full h-[500px] md:h-[580px]">
           {heroSlides.map((slide, index) => (
@@ -381,31 +408,34 @@ export default function ParagonHomepage() {
               </div>
               
               <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center py-8">
-                <div className="max-w-3xl" style={{textShadow: '0 2px 8px rgba(0,0,0,0.4)'}}>
-                  <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                    <Shield size={18} className="text-[#00B8D4]" />
-                    Licensed by NBFIRA
+                <div className="max-w-3xl pb-24 md:pb-20" style={{textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)'}}>
+                  <div className="hidden md:inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-white/30 shadow-lg">
+                    <Shield size={18} className="text-white" />
+                    <span className="text-white">Licensed by NBFIRA</span>
                   </div>
                   
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white">
                     {slide.title}{' '}
-                    <span className="text-[#00B8D4]">{slide.titleAccent}</span>
+                    <span className="text-[#00B8D4] drop-shadow-lg">{slide.titleAccent}</span>
                   </h2>
                   
-                  <p className="text-lg md:text-xl mb-2 text-cyan-100 font-medium">
-                    You are in safe hands
-                  </p>
+                  <div className="inline-block bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] px-5 py-2 rounded-lg mb-4 shadow-lg">
+                    <p className="text-lg md:text-xl font-bold text-white">
+                      You are in safe hands
+                    </p>
+                  </div>
                   
-                  <p className="text-base md:text-lg mb-6 text-white/95 leading-relaxed">
+                  <p className="text-base md:text-lg mb-6 text-white leading-relaxed">
                     {slide.subtitle}
                   </p>
                   
+                  {/* CTA Buttons - removed bottom margin that was causing issues */}
                   <div className="flex flex-wrap gap-4">
-                    <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-3xl hover:scale-105 flex items-center gap-2 group" style={{textShadow: 'none'}}>
+                    <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:scale-105 flex items-center gap-2 group" style={{textShadow: 'none'}}>
                       {slide.cta}
                       <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </button>
-                    <button onClick={() => smoothScroll('providers')} className="border-2 border-white hover:bg-white hover:text-[#00A3E0] px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105">
+                    <button onClick={() => smoothScroll('providers')} className="border-2 border-white hover:bg-white hover:text-[#00A3E0] px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 backdrop-blur-sm bg-white/10 shadow-lg">
                       Learn More
                     </button>
                   </div>
@@ -415,24 +445,29 @@ export default function ParagonHomepage() {
           ))}
         </div>
 
-        <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all hover:scale-110 z-30" aria-label="Previous slide">
-          <ChevronLeft size={24} />
-        </button>
-        <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all hover:scale-110 z-30" aria-label="Next slide">
-          <ChevronRight size={24} />
-        </button>
+        {/* Previous/Next buttons - stacked vertically on right side */}
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
+          <button onClick={prevSlide} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all hover:scale-110" aria-label="Previous slide">
+            <ChevronLeft size={24} />
+          </button>
+          <button onClick={nextSlide} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all hover:scale-110" aria-label="Next slide">
+            <ChevronRight size={24} />
+          </button>
+        </div>
 
-        <div className="absolute bottom-24 md:bottom-28 left-0 right-0 flex justify-center gap-3 z-30">
+        {/* Carousel indicators - positioned at bottom with proper spacing */}
+        <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex justify-center gap-3 z-30">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`transition-all ${index === currentSlide ? 'w-12 bg-white' : 'w-3 bg-white/40 hover:bg-white/60'} h-3 rounded-full`}
+              className={`transition-all ${index === currentSlide ? 'w-12 bg-white' : 'w-3 bg-white/40 hover:bg-white/60'} h-3 rounded-full shadow-lg`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
 
+        {/* Wave SVG separator */}
         <div className="absolute -bottom-px left-0 right-0 z-20 pointer-events-none">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" preserveAspectRatio="none">
             <path d="M0 120L1440 120L1440 0C1440 0 1080 80 720 80C360 80 0 0 0 0L0 120Z" fill="white"/>
@@ -441,7 +476,7 @@ export default function ParagonHomepage() {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-20 bg-gradient-to-b from-white via-slate-50 to-white">
+      <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block bg-[#00A3E0]/10 text-[#00A3E0] px-4 py-2 rounded-full text-sm font-bold mb-4">
@@ -450,31 +485,34 @@ export default function ParagonHomepage() {
             <h2 className="text-4xl md:text-5xl font-bold text-[#1A4D6D] mb-4">
               Your Trusted <span className="text-[#00A3E0]">Insurance Partner</span>
             </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Licensed by NBFIRA and committed to helping you find the perfect coverage
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-[#00A3E0] hover:scale-105">
-              <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-[#00A3E0] hover:scale-105 hover:border-t-8">
+              <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-2xl group-hover:rotate-6 transition-all duration-300">
                 <Clock className="text-white" size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-[#1A4D6D] mb-3 text-center">1-Hour Response</h3>
-              <p className="text-slate-600 text-center leading-relaxed">Get personalized quotes from multiple providers within an hour. Fast, efficient, and hassle-free service.</p>
+              <h3 className="text-2xl font-bold text-[#1A4D6D] mb-3 text-center">Fast Response Time</h3>
+              <p className="text-slate-600 text-center leading-relaxed">Get personalized quotes from multiple providers quickly. Fast, efficient, and hassle-free service during business hours.</p>
             </div>
 
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-[#00B8D4] hover:scale-105">
-              <div className="bg-gradient-to-br from-[#00B8D4] to-[#00A3E0] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-[#00B8D4] hover:scale-105 hover:border-t-8">
+              <div className="bg-gradient-to-br from-[#00B8D4] to-[#00A3E0] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-2xl group-hover:rotate-6 transition-all duration-300">
                 <Users className="text-white" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-[#1A4D6D] mb-3 text-center">Trusted by Families</h3>
               <p className="text-slate-600 text-center leading-relaxed">Helping families across Botswana find the right coverage with expert guidance and comprehensive solutions.</p>
             </div>
 
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-[#00A3E0] hover:scale-105">
-              <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-[#00A3E0] hover:scale-105 hover:border-t-8">
+              <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-2xl group-hover:rotate-6 transition-all duration-300">
                 <CheckCircle className="text-white" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-[#1A4D6D] mb-3 text-center">Free & No Obligation</h3>
-              <p className="text-slate-600 text-center leading-relaxed">Compare quotes with zero commitment. Expert guidance to help you make the best decision.</p>
+              <p className="text-slate-600 text-center leading-relaxed">Compare quotes with zero commitment. Expert guidance to help you make the best decision for your family.</p>
             </div>
           </div>
         </div>
@@ -512,7 +550,7 @@ export default function ParagonHomepage() {
                       alt={provider.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A4D6D] via-[#00A3E0]/80 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent"></div>
                     
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                       <h3 className="text-3xl font-bold mb-2">{provider.name}</h3>
@@ -520,12 +558,12 @@ export default function ParagonHomepage() {
                     </div>
                   </div>
 
-                  <div className={`bg-gradient-to-b from-slate-50 to-white transition-all duration-500 ${expandedProvider === provider.id ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                  <div className={`bg-gradient-to-b from-slate-50 to-white transition-all duration-500 ${expandedProvider === provider.id ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
                     <div className="p-6">
                       <p className="text-slate-700 mb-6 leading-relaxed">{provider.description}</p>
                       <h4 className="font-bold text-[#1A4D6D] mb-4 flex items-center gap-2 text-lg">
                         <CheckCircle className="text-[#00B8D4]" size={22} />
-                        Key Benefits:
+                        Key Features:
                       </h4>
                       <ul className="space-y-3 mb-6">
                         {provider.benefits.map((benefit, idx) => (
@@ -535,8 +573,13 @@ export default function ParagonHomepage() {
                           </li>
                         ))}
                       </ul>
+                      <div className="bg-slate-100 border-l-4 border-[#00A3E0] p-4 rounded-lg mb-6">
+                        <p className="text-sm text-slate-600 italic">
+                          <strong>Note:</strong> Product details and benefits are subject to policy terms and conditions. Contact us for personalized quotes and complete product information.
+                        </p>
+                      </div>
                       <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2 group" onClick={() => setQuoteModalOpen(true)}>
-                        Get Quote for {provider.name}
+                        Get Quote from {provider.name}
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>
@@ -562,7 +605,7 @@ export default function ParagonHomepage() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+      <section id="how-it-works" className="py-20 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#00B8D4]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#00A3E0]/5 rounded-full blur-3xl"></div>
         
@@ -582,7 +625,7 @@ export default function ParagonHomepage() {
                   1
                 </div>
                 <h3 className="text-2xl font-bold text-[#1A4D6D] mb-4">Choose Provider</h3>
-                <p className="text-slate-600 leading-relaxed">Browse our trusted providers and select the one that fits your needs</p>
+                <p className="text-slate-600 leading-relaxed">Browse our trusted partners and select the one that best fits your needs, or let us recommend options</p>
               </div>
               <div className="hidden md:block absolute top-14 -right-4 w-12 h-1 bg-gradient-to-r from-[#00B8D4] to-transparent"></div>
             </div>
@@ -593,7 +636,7 @@ export default function ParagonHomepage() {
                   2
                 </div>
                 <h3 className="text-2xl font-bold text-[#1A4D6D] mb-4">Submit Details</h3>
-                <p className="text-slate-600 leading-relaxed">Fill out a quick form with your basic information and coverage needs</p>
+                <p className="text-slate-600 leading-relaxed">Fill out a quick form with your basic information and coverage needs via our website or WhatsApp</p>
               </div>
               <div className="hidden md:block absolute top-14 -right-4 w-12 h-1 bg-gradient-to-r from-[#00B8D4] to-transparent"></div>
             </div>
@@ -603,7 +646,7 @@ export default function ParagonHomepage() {
                 3
               </div>
               <h3 className="text-2xl font-bold text-[#1A4D6D] mb-4">Get Your Quote</h3>
-              <p className="text-slate-600 leading-relaxed">Receive a personalized quote within 1 hour via WhatsApp or phone</p>
+              <p className="text-slate-600 leading-relaxed">Receive personalized quotes and expert guidance via WhatsApp or phone during business hours</p>
             </div>
           </div>
         </div>
@@ -614,15 +657,18 @@ export default function ParagonHomepage() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#00B8D4]/5 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <div className="inline-block bg-[#00A3E0]/10 text-[#00A3E0] px-4 py-2 rounded-full text-sm font-bold mb-4">
               CLIENT TESTIMONIALS
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#1A4D6D] mb-4">
               What Our <span className="text-[#00A3E0]">Clients Say</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Real stories from families we've helped protect across Botswana
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-3">
+              Real feedback from families we've helped protect across Botswana
+            </p>
+            <p className="text-sm text-slate-500 italic">
+              *Names abbreviated for privacy
             </p>
           </div>
 
@@ -636,11 +682,9 @@ export default function ParagonHomepage() {
                 </div>
                 <p className="text-slate-700 mb-6 leading-relaxed italic">"{testimonial.content}"</p>
                 <div className="flex items-center gap-4">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-[#00A3E0]/20"
-                  />
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] flex items-center justify-center text-white font-bold text-lg shadow-md">
+                    {testimonial.initials}
+                  </div>
                   <div>
                     <h4 className="font-bold text-[#1A4D6D]">{testimonial.name}</h4>
                     <p className="text-sm text-slate-600">{testimonial.role}</p>
@@ -680,14 +724,18 @@ export default function ParagonHomepage() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] rounded-xl flex items-center justify-center shadow-lg">
-                  <div className="w-7 h-7 border-3 border-white rounded-full"></div>
+                  <svg viewBox="0 0 100 100" className="w-8 h-8" fill="none">
+                    <circle cx="50" cy="35" r="7" fill="#0A5F7D" />
+                    <path d="M50 45 L63 58 L50 71 L37 58 Z" fill="white" stroke="#0A5F7D" strokeWidth="2" />
+                    <path d="M68 71 L80 71 L74 58 Z" fill="white" />
+                  </svg>
                 </div>
                 <div>
                   <span className="font-bold text-xl text-[#00A3E0]">Paragon</span>
                   <p className="text-xs text-[#00B8D4] font-semibold">Insurance Brokers</p>
                 </div>
               </div>
-              <p className="text-slate-300 mb-3 leading-relaxed">
+              <p className="text-slate-300 mb-3 leading-relaxed italic">
                 You are in safe hands
               </p>
               <p className="text-slate-400 text-sm">
@@ -700,8 +748,8 @@ export default function ParagonHomepage() {
               <ul className="space-y-3 text-slate-300">
                 <li className="hover:text-[#00B8D4] transition">Metropolitan Life</li>
                 <li className="hover:text-[#00B8D4] transition">Botswana Life</li>
-                <li className="hover:text-[#00B8D4] transition">Hollard Insurance</li>
-                <li className="hover:text-[#00B8D4] transition">Bonna Life</li>
+                <li className="hover:text-[#00B8D4] transition">Hollard Life</li>
+                <li className="hover:text-[#00B8D4] transition">Bona Life</li>
               </ul>
             </div>
 
@@ -718,10 +766,18 @@ export default function ParagonHomepage() {
             <div>
               <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Contact Us</h4>
               <ul className="space-y-3 text-slate-300">
-                <li>Gaborone, Botswana</li>
-                <li><a href="tel:+26736237000" className="hover:text-[#00B8D4] transition">+267 36 23 700</a></li>
-                <li><a href="https://wa.me/26775257556" className="hover:text-[#00B8D4] transition">+267 75 257 556</a></li>
-                <li><a href="mailto:info@paragoninsurance.bw" className="hover:text-[#00B8D4] transition">info@paragoninsurance.bw</a></li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#00B8D4] mt-1">📍</span>
+                  <span>Plot 50371, Fairgrounds Office Park<br/>Gaborone, Botswana</span>
+                </li>
+                <li><a href="tel:+26736237000" className="hover:text-[#00B8D4] transition">📞 +267 36 23 700</a></li>
+                <li><a href="https://wa.me/26775257556" className="hover:text-[#00B8D4] transition">💬 +267 75 257 556</a></li>
+                <li><a href="mailto:info@paragoninsurance.bw" className="hover:text-[#00B8D4] transition">✉️ info@paragoninsurance.bw</a></li>
+                <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
+                  <strong className="text-[#00B8D4]">Business Hours:</strong><br/>
+                  Mon-Fri: 8:00 AM - 5:00 PM<br/>
+                  Sat: 9:00 AM - 1:00 PM
+                </li>
               </ul>
             </div>
           </div>
