@@ -38,7 +38,7 @@ export default function ParagonHomepage() {
       titleAccent: "Botswana's Top Providers",
       subtitle: "Get personalized quotes from Metropolitan, Botswana Life, Hollard, and Bona Life",
       cta: "Request Free Quote",
-      gradientOpacity: "from-slate-900/80 via-slate-900/40 to-transparent"
+      gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     },
     {
       id: 2,
@@ -47,7 +47,7 @@ export default function ParagonHomepage() {
       titleAccent: "1 Hour",
       subtitle: "Fast, professional service from Botswana's most trusted insurance broker",
       cta: "Get Started Now",
-      gradientOpacity: "from-slate-900/75 via-slate-900/35 to-transparent"
+      gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     },
     {
       id: 3,
@@ -56,7 +56,7 @@ export default function ParagonHomepage() {
       titleAccent: "Future Today",
       subtitle: "Trusted by families nationwide for expert insurance guidance and personalized service",
       cta: "Get Protected",
-      gradientOpacity: "from-slate-900/80 via-slate-900/40 to-transparent"
+      gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ export default function ParagonHomepage() {
       titleAccent: "No Obligation",
       subtitle: "Compare options, make informed decisions, protect what matters most",
       cta: "Compare Now",
-      gradientOpacity: "from-slate-900/75 via-slate-900/35 to-transparent"
+      gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     }
   ];
 
@@ -306,29 +306,15 @@ export default function ParagonHomepage() {
         </div>
       </div>
 
-      {/* Header - Simple Navigation */}
+      {/* Header - With Logo */}
       <header className="bg-white shadow-lg sticky top-0 z-40 border-b border-[#00A3E0]/20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-            <div className="relative group">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all">
-                <svg viewBox="0 0 100 100" className="w-10 h-10" fill="none">
-                  {/* Simplified person icon */}
-                  <circle cx="50" cy="35" r="8" fill="#0A5F7D" />
-                  {/* Diamond shape */}
-                  <path d="M50 45 L65 60 L50 75 L35 60 Z" fill="white" stroke="#0A5F7D" strokeWidth="2" />
-                  {/* Triangle */}
-                  <path d="M70 75 L85 75 L77.5 60 Z" fill="white" />
-                </svg>
-              </div>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-[#00A3E0] tracking-tight">
-                Paragon
-              </h1>
-              <p className="text-xs text-[#0A5F7D] font-bold uppercase tracking-wider">Insurance Brokers</p>
-              <p className="text-[10px] text-slate-500 italic -mt-0.5">You are in safe hands</p>
-            </div>
+          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
+            <img 
+              src="/images/paragon-logo-clean.webp"
+              alt="Paragon Insurance Brokers - You are in safe hands"
+              className="h-16 w-auto"
+            />
           </Link>
           
           {/* Desktop Navigation */}
@@ -408,30 +394,30 @@ export default function ParagonHomepage() {
               </div>
               
               <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center py-8">
-                <div className="max-w-3xl pb-24 md:pb-20" style={{textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)'}}>
+                <div className="max-w-3xl pb-24 md:pb-20">
                   <div className="hidden md:inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-white/30 shadow-lg">
                     <Shield size={18} className="text-white" />
                     <span className="text-white">Licensed by NBFIRA</span>
                   </div>
                   
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white">
-                    {slide.title}{' '}
-                    <span className="text-[#00B8D4] drop-shadow-lg">{slide.titleAccent}</span>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
+                    <span className="text-white">{slide.title}</span>{' '}
+                    <span className="text-[#00E5FF] drop-shadow-[0_4px_12px_rgba(0,229,255,0.5)]">{slide.titleAccent}</span>
                   </h2>
                   
-                  <div className="inline-block bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] px-5 py-2 rounded-lg mb-4 shadow-lg">
+                  <div className="inline-block bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] px-6 py-3 rounded-xl mb-5 shadow-2xl border-2 border-white/30">
                     <p className="text-lg md:text-xl font-bold text-white">
-                      You are in safe hands
+                      ✓ You are in safe hands
                     </p>
                   </div>
                   
-                  <p className="text-base md:text-lg mb-6 text-white leading-relaxed">
+                  <p className="text-base md:text-lg mb-6 text-white leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                     {slide.subtitle}
                   </p>
                   
-                  {/* CTA Buttons - removed bottom margin that was causing issues */}
+                  {/* CTA Buttons */}
                   <div className="flex flex-wrap gap-4">
-                    <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:scale-105 flex items-center gap-2 group" style={{textShadow: 'none'}}>
+                    <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:scale-105 flex items-center gap-2 group">
                       {slide.cta}
                       <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -456,12 +442,12 @@ export default function ParagonHomepage() {
         </div>
 
         {/* Carousel indicators - positioned at bottom with proper spacing */}
-        <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex justify-center gap-3 z-30">
+        <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex justify-center gap-4 z-30">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`transition-all ${index === currentSlide ? 'w-12 bg-white' : 'w-3 bg-white/40 hover:bg-white/60'} h-3 rounded-full shadow-lg`}
+              className={`transition-all ${index === currentSlide ? 'w-12 bg-white' : 'w-4 bg-white/50 hover:bg-white/70'} h-4 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.5)] border border-white/30`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -542,8 +528,8 @@ export default function ParagonHomepage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {providers.map((provider) => (
-              <div key={provider.id} className="group">
-                <div className="relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:border-[#00A3E0]/30">
+              <div key={provider.id} className="group relative">
+                <div className="relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:border-[#00A3E0]/30 bg-white">
                   <div className="relative h-72 overflow-hidden">
                     <img 
                       {...getResponsiveImage(provider.image)}
@@ -558,8 +544,8 @@ export default function ParagonHomepage() {
                     </div>
                   </div>
 
-                  <div className={`bg-gradient-to-b from-slate-50 to-white transition-all duration-500 ${expandedProvider === provider.id ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                    <div className="p-6">
+                  <div className={`bg-gradient-to-b from-slate-50 to-white transition-all duration-500 ${expandedProvider === provider.id ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                    <div className="p-6 pb-8">
                       <p className="text-slate-700 mb-6 leading-relaxed">{provider.description}</p>
                       <h4 className="font-bold text-[#1A4D6D] mb-4 flex items-center gap-2 text-lg">
                         <CheckCircle className="text-[#00B8D4]" size={22} />
@@ -578,7 +564,7 @@ export default function ParagonHomepage() {
                           <strong>Note:</strong> Product details and benefits are subject to policy terms and conditions. Contact us for personalized quotes and complete product information.
                         </p>
                       </div>
-                      <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2 group" onClick={() => setQuoteModalOpen(true)}>
+                      <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2 group relative z-10" onClick={() => setQuoteModalOpen(true)}>
                         Get Quote from {provider.name}
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -722,18 +708,12 @@ export default function ParagonHomepage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] rounded-xl flex items-center justify-center shadow-lg">
-                  <svg viewBox="0 0 100 100" className="w-8 h-8" fill="none">
-                    <circle cx="50" cy="35" r="7" fill="#0A5F7D" />
-                    <path d="M50 45 L63 58 L50 71 L37 58 Z" fill="white" stroke="#0A5F7D" strokeWidth="2" />
-                    <path d="M68 71 L80 71 L74 58 Z" fill="white" />
-                  </svg>
-                </div>
-                <div>
-                  <span className="font-bold text-xl text-[#00A3E0]">Paragon</span>
-                  <p className="text-xs text-[#00B8D4] font-semibold">Insurance Brokers</p>
-                </div>
+              <div className="mb-6">
+                <img 
+                  src="/images/paragon-logo-clean.webp"
+                  alt="Paragon Insurance Brokers"
+                  className="h-20 w-auto brightness-0 invert"
+                />
               </div>
               <p className="text-slate-300 mb-3 leading-relaxed italic">
                 You are in safe hands
