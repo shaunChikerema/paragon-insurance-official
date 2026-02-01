@@ -65,7 +65,7 @@ export default function AboutPage() {
               Providers
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
             </Link>
-            <Link href="/#contact" className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
+            <Link href="/contact" className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
             </Link>
@@ -96,7 +96,7 @@ export default function AboutPage() {
               <Link href="/#providers" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
                 Providers
               </Link>
-              <Link href="/#contact" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
+              <Link href="/contact" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
                 Contact
               </Link>
               <a href="/#contact" className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-3 px-6 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all">
@@ -384,7 +384,7 @@ export default function AboutPage() {
                 <li><Link href="/about" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">About Us</Link></li>
                 <li><Link href="/#providers" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Providers</Link></li>
                 <li><Link href="/#testimonials" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Testimonials</Link></li>
-                <li><Link href="/#contact" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Contact</Link></li>
+                <li><Link href="/contact" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Contact</Link></li>
               </ul>
             </div>
 

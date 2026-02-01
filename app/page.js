@@ -286,7 +286,7 @@ export default function ParagonHomepage() {
       </a>
 
       {/* Top Contact Bar */}
-      <div className="bg-gradient-to-r from-[#1A4D6D] via-[#00A3E0] to-[#00B8D4] text-white py-2.5 px-4 shadow-md">
+      <div className="hidden md:block bg-gradient-to-r from-[#1A4D6D] via-[#00A3E0] to-[#00B8D4] text-white py-2.5 px-4 shadow-md">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm gap-2">
           <div className="flex flex-wrap gap-4 md:gap-6">
             <a href="https://wa.me/26775257556" className="flex items-center gap-2 hover:text-cyan-100 transition-all hover:scale-105">
@@ -331,10 +331,10 @@ export default function ParagonHomepage() {
               Providers
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
             </button>
-            <button onClick={() => smoothScroll('contact')} className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
+            <Link href="/contact" className="hover:text-[#00A3E0] transition-all hover:scale-105 relative group">
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
-            </button>
+            </Link>
             <button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-md hover:shadow-lg hover:scale-105">
               Get Quote
             </button>
@@ -362,9 +362,9 @@ export default function ParagonHomepage() {
               <button onClick={() => smoothScroll('providers')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
                 Providers
               </button>
-              <button onClick={() => smoothScroll('contact')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
+              <Link href="/contact" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-all">
                 Contact
-              </button>
+              </Link>
               <button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-3 px-6 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all">
                 Get Quote
               </button>
@@ -704,7 +704,7 @@ export default function ParagonHomepage() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-gradient-to-b from-[#1A4D6D] to-[#0f3041] text-white py-16">
+      <footer id="footer-contact" className="bg-gradient-to-b from-[#1A4D6D] to-[#0f3041] text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div>
@@ -739,7 +739,7 @@ export default function ParagonHomepage() {
                 <li><Link href="/about" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">About Us</Link></li>
                 <li><button onClick={() => smoothScroll('providers')} className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Providers</button></li>
                 <li><button onClick={() => smoothScroll('testimonials')} className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Testimonials</button></li>
-                <li><button onClick={() => smoothScroll('contact')} className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Contact</button></li>
+                <li><Link href="/contact" className="hover:text-[#00B8D4] transition hover:translate-x-1 inline-block">Contact</Link></li>
               </ul>
             </div>
 
