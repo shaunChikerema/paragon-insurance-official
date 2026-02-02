@@ -355,9 +355,9 @@ export default function AboutPage() {
             <div>
               <div className="mb-6">
                 <img 
-                  src="/images/paragon-logo-clean.webp"
+                  src="/images/paragon-logo.webp"
                   alt="Paragon Insurance Brokers"
-                  className="h-20 w-auto brightness-0 invert"
+                  className="h-20 w-auto"
                 />
               </div>
               <p className="text-slate-300 mb-3 leading-relaxed italic">
