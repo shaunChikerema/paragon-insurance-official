@@ -6,6 +6,23 @@ import Link from 'next/link';
 
 export default function AboutPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    provider: '',
+    message: ''
+  });
+
+  const handleQuoteSubmit = (e) => {
+    e.preventDefault();
+    const whatsappMessage = `New Quote Request:%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0APreferred Provider: ${formData.provider || 'Any Provider'}%0AMessage: ${formData.message}`;
+    window.open(`https://wa.me/26771515175?text=${whatsappMessage}`, '_blank');
+    setQuoteModalOpen(false);
+    setFormData({ name: '', phone: '', email: '', provider: '', message: '' });
+  };
+
 
   // Add scroll animation styles and intersection observer
   useEffect(() => {
@@ -98,9 +115,91 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Quote Request Modal */}
+      {quoteModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="sticky top-0 bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white p-6 flex justify-between items-center rounded-t-2xl">
+              <h3 className="text-2xl font-bold">Request Free Quote</h3>
+              <button onClick={() => setQuoteModalOpen(false)} className="hover:opacity-80 transition-opacity">
+                <X size={24} />
+              </button>
+            </div>
+            <form onSubmit={handleQuoteSubmit} className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Full Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Phone Number *</label>
+                <input
+                  type="tel"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
+                  placeholder="+267 XX XXX XXX"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Email Address *</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Preferred Provider (Optional)</label>
+                <select
+                  value={formData.provider}
+                  onChange={(e) => setFormData({...formData, provider: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white"
+                >
+                  <option value="" className="text-slate-900">Any Provider</option>
+                  <option value="Metropolitan Life" className="text-slate-900">Metropolitan Life</option>
+                  <option value="Botswana Life" className="text-slate-900">Botswana Life</option>
+                  <option value="Hollard Life" className="text-slate-900">Hollard Life</option>
+                  <option value="Bona Life" className="text-slate-900">Bona Life</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Additional Information</label>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
+                  rows="3"
+                  placeholder="Tell us about your coverage needs..."
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                Submit Request
+                <ArrowRight size={20} />
+              </button>
+              <p className="text-sm text-slate-600 text-center">We'll respond within 1 hour during business hours</p>
+            </form>
+          </div>
+        </div>
+      )}
+
+
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/26775257556"
+        href="https://wa.me/26771515175"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-full shadow-lg transition-all duration-300 group"
         aria-label="Chat on WhatsApp"
       >
@@ -112,19 +211,19 @@ export default function AboutPage() {
       <div className="bg-gradient-to-r from-[#1A4D6D] via-[#00A3E0] to-[#00B8D4] text-white py-2.5 px-4 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm gap-2">
           <div className="flex flex-wrap gap-4 md:gap-6">
-            <a href="https://wa.me/26775257556" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
+            <a href="https://wa.me/26771515175" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
               <MessageCircle size={16} />
-              <span className="font-semibold">WhatsApp: +267 75 257 556</span>
+              <span className="font-semibold">WhatsApp: +267 71 515 175</span>
             </a>
             <a href="tel:+26736237000" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
               <Phone size={16} />
-              <span className="font-semibold">Call: +267 36 23 700</span>
+              <span className="font-semibold">Call: +267 71 515 175</span>
             </a>
           </div>
           <div className="flex gap-3">
-            <a href="/#contact" className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-5 py-2 rounded-lg font-bold transition-colors shadow-sm">
+            <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-5 py-2 rounded-lg font-bold transition-colors shadow-sm">
               Get Quote
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -158,9 +257,9 @@ export default function AboutPage() {
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00A3E0] group-hover:w-full transition-all"></span>
             </Link>
-            <a href="/#contact" className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-sm hover:shadow-md">
+            <button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-sm hover:shadow-md">
               Get Quote
-            </a>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -188,9 +287,9 @@ export default function AboutPage() {
               <Link href="/contact" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">
                 Contact
               </Link>
-              <a href="/#contact" className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-3 px-6 rounded-xl font-bold shadow-md transition-shadow">
-                Get Quote
-              </a>
+              <button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-3 px-6 rounded-xl font-bold shadow-md transition-shadow">
+              Get Quote
+            </button>
             </nav>
           </div>
         )}
@@ -445,11 +544,11 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone size={18} className="text-[#00B8D4]" />
-                  <a href="tel:+26736237000" className="hover:text-[#00B8D4] transition-colors">+267 36 23 700</a>
+                  <a href="tel:+26771515175" className="hover:text-[#00B8D4] transition-colors">267 71 515 175</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <MessageCircle size={18} className="text-[#00B8D4]" />
-                  <a href="https://wa.me/26775257556" className="hover:text-[#00B8D4] transition-colors">+267 75 257 556</a>
+                  <a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition-colors">+267 71 515 175</a>
                 </li>
                 <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
                   <div className="flex items-start gap-2">

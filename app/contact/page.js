@@ -17,12 +17,12 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const whatsappMessage = `New Contact Form Submission:%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0ASubject: ${formData.subject}%0AMessage: ${formData.message}`;
-    window.open(`https://wa.me/26775257556?text=${whatsappMessage}`, '_blank');
+    const whatsappMessage = `New Contact Form Submission:%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0ASubject: ${formData.subject}${formData.provider ? '%0APreferred Provider: ' + formData.provider : ''}%0AMessage: ${formData.message}`;
+    window.open(`https://wa.me/26771515175?text=${whatsappMessage}`, '_blank');
     setFormSubmitted(true);
     setTimeout(() => {
       setFormSubmitted(false);
-      setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', phone: '', email: '', subject: '', provider: '', message: '' });
     }, 3000);
   };
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white">
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/26775257556"
+        href="https://wa.me/26771515175"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
         aria-label="Chat on WhatsApp"
       >
@@ -42,13 +42,13 @@ export default function ContactPage() {
       <div className="bg-gradient-to-r from-[#1A4D6D] via-[#00A3E0] to-[#00B8D4] text-white py-2.5 px-4 shadow-md">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm gap-2">
           <div className="flex flex-wrap gap-4 md:gap-6">
-            <a href="https://wa.me/26775257556" className="flex items-center gap-2 hover:text-cyan-100 transition-all hover:scale-105">
+            <a href="https://wa.me/26771515175" className="flex items-center gap-2 hover:text-cyan-100 transition-all hover:scale-105">
               <MessageCircle size={16} />
-              <span className="font-semibold">WhatsApp: +267 75 257 556</span>
+              <span className="font-semibold">WhatsApp: +267 71 515 175</span>
             </a>
-            <a href="tel:+26736237000" className="flex items-center gap-2 hover:text-cyan-100 transition-all hover:scale-105">
+            <a href="tel:+26771515175" className="flex items-center gap-2 hover:text-cyan-100 transition-all hover:scale-105">
               <Phone size={16} />
-              <span className="font-semibold">Call: +267 36 23 700</span>
+              <span className="font-semibold">Call: +267 71 515 175</span>
             </a>
           </div>
           <div className="flex gap-3">
@@ -151,22 +151,22 @@ export default function ContactPage() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-6">
-            <a href="tel:+26736237000" className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 group">
+            <a href="tel:+26771515175" className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 group">
               <div className="bg-white/20 w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Phone size={32} />
               </div>
               <h3 className="text-2xl font-bold mb-2">Phone</h3>
               <p className="text-cyan-50 mb-1">Call us directly</p>
-              <p className="text-xl font-bold">+267 36 23 700</p>
+              <p className="text-xl font-bold">+267 71 515 175</p>
             </a>
 
-            <a href="https://wa.me/26775257556" className="bg-gradient-to-br from-[#25D366] to-[#20BA5A] text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 group">
+            <a href="https://wa.me/26771515175" className="bg-gradient-to-br from-[#25D366] to-[#20BA5A] text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 group">
               <div className="bg-white/20 w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <MessageCircle size={32} />
               </div>
               <h3 className="text-2xl font-bold mb-2">WhatsApp</h3>
               <p className="text-green-50 mb-1">Quick response guaranteed</p>
-              <p className="text-xl font-bold">+267 75 257 556</p>
+              <p className="text-xl font-bold">+267 71 515 175</p>
             </a>
 
             <a href="mailto:info@paragoninsurance.bw" className="bg-gradient-to-br from-[#1A4D6D] to-[#0f3041] text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 group">
@@ -205,7 +205,7 @@ export default function ContactPage() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                       placeholder="John Doe"
                     />
                   </div>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                         placeholder="+267 XX XXX XXX"
                       />
                     </div>
@@ -230,7 +230,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -242,14 +242,29 @@ export default function ContactPage() {
                       required
                       value={formData.subject}
                       onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="Quote Request">Quote Request</option>
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Policy Information">Policy Information</option>
-                      <option value="Claim Support">Claim Support</option>
-                      <option value="Other">Other</option>
+                      <option className="text-slate-900" value="">Select a subject</option>
+                      <option className="text-slate-900" value="Quote Request">Quote Request</option>
+                      <option className="text-slate-900" value="General Inquiry">General Inquiry</option>
+                      <option className="text-slate-900" value="Policy Information">Policy Information</option>
+                      <option className="text-slate-900" value="Claim Support">Claim Support</option>
+                      <option className="text-slate-900" value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Preferred Provider (Optional)</label>
+                    <select
+                      value={formData.provider}
+                      onChange={(e) => setFormData({...formData, provider: e.target.value})}
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white"
+                    >
+                      <option className="text-slate-900" value="">Any Provider</option>
+                      <option className="text-slate-900" value="Metropolitan Life">Metropolitan Life</option>
+                      <option className="text-slate-900" value="Botswana Life">Botswana Life</option>
+                      <option className="text-slate-900" value="Hollard Life">Hollard Life</option>
+                      <option className="text-slate-900" value="Bona Life">Bona Life</option>
                     </select>
                   </div>
 
@@ -259,7 +274,7 @@ export default function ContactPage() {
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                       rows="5"
                       placeholder="Tell us how we can help you..."
                     />
@@ -516,11 +531,11 @@ export default function ContactPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone size={18} className="text-[#00B8D4]" />
-                  <a href="tel:+26736237000" className="hover:text-[#00B8D4] transition">+267 36 23 700</a>
+                  <a href="tel:+26771515175" className="hover:text-[#00B8D4] transition">+267 71 515 175</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <MessageCircle size={18} className="text-[#00B8D4]" />
-                  <a href="https://wa.me/26775257556" className="hover:text-[#00B8D4] transition">+267 75 257 556</a>
+                  <a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition">+267 71 515 175</a>
                 </li>
                 <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
                   <div className="flex items-start gap-2">

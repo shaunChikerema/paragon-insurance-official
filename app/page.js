@@ -125,7 +125,7 @@ export default function ParagonHomepage() {
       image: "hero-slide-1.webp",
       title: "Compare Life Insurance from",
       titleAccent: "Botswana's Top Providers",
-      subtitle: "Get personalized quotes from Metropolitan, Botswana Life, Hollard, and Bona Life",
+      subtitle: "Get personalized quotes from top insurers in minutes",
       cta: "Request Free Quote",
       gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     },
@@ -164,6 +164,7 @@ export default function ParagonHomepage() {
       name: "Metropolitan Life",
       tagline: "Trusted life insurance since 1998",
       image: "provider-metropolitan.webp",
+      logo: "metro-logo.png",
       description: "Part of Momentum Metropolitan Holdings, Metropolitan Life has been serving Botswana families since 1998. As the country's second-largest life insurer, they offer a comprehensive range of life insurance, health, savings, and funeral cover solutions.",
       benefits: [
         "Over 25 years of experience in Botswana",
@@ -177,6 +178,7 @@ export default function ParagonHomepage() {
       name: "Botswana Life",
       tagline: "Botswana's largest and oldest life insurer",
       image: "provider-botswana.webp",
+      logo: "bots-logo.png",
       description: "Founded in 1975, Botswana Life Insurance is the country's oldest and only home-grown life insurance company. With over 75% market share and more than 300,000 policyholders, they are the most trusted name in Botswana life insurance.",
       benefits: [
         "Botswana's only indigenous life insurer since 1975",
@@ -190,6 +192,7 @@ export default function ParagonHomepage() {
       name: "Hollard Life",
       tagline: "Innovative life insurance solutions",
       image: "provider-hollard.webp",
+      logo: "hollard-logo.png",
       description: "Established in 2005, Hollard Life Botswana is part of the international Hollard Group. They offer innovative life insurance solutions including their popular Lerako Life Cover with cashback benefits, funeral cover, and group life insurance.",
       benefits: [
         "Part of international Hollard Group",
@@ -203,6 +206,7 @@ export default function ParagonHomepage() {
       name: "Bona Life",
       tagline: "Citizen-owned life insurance",
       image: "provider-bonna.webp",
+      logo: "bots-logo.png",
       description: "Founded in 2013, Bona Life is Botswana's first indigenous broad-based citizen-owned life insurance company. Owned by BPOPF (Botswana Public Officers Pension Fund), they offer straightforward insurance solutions with competitive rates.",
       benefits: [
         "Botswana's first citizen-owned life insurer",
@@ -224,7 +228,7 @@ export default function ParagonHomepage() {
   const handleQuoteSubmit = (e) => {
     e.preventDefault();
     const whatsappMessage = `Hi, I'd like a quote!%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AProvider: ${formData.provider || 'Any'}%0AMessage: ${formData.message}`;
-    window.open(`https://wa.me/26775257556?text=${whatsappMessage}`, '_blank');
+    window.open(`https://wa.me/26771515175?text=${whatsappMessage}`, '_blank');
     setQuoteModalOpen(false);
     setFormData({ name: '', phone: '', email: '', provider: '', message: '' });
   };
@@ -274,7 +278,7 @@ export default function ParagonHomepage() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                   placeholder="John Doe"
                 />
               </div>
@@ -285,7 +289,7 @@ export default function ParagonHomepage() {
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                   placeholder="+267 XX XXX XXX"
                 />
               </div>
@@ -296,7 +300,7 @@ export default function ParagonHomepage() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                   placeholder="john@example.com"
                 />
               </div>
@@ -305,13 +309,13 @@ export default function ParagonHomepage() {
                 <select
                   value={formData.provider}
                   onChange={(e) => setFormData({...formData, provider: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white"
                 >
-                  <option value="">Any Provider</option>
-                  <option value="Metropolitan Life">Metropolitan Life</option>
-                  <option value="Botswana Life">Botswana Life</option>
-                  <option value="Hollard Life">Hollard Life</option>
-                  <option value="Bona Life">Bona Life</option>
+                  <option value="" className="text-slate-900">Any Provider</option>
+                  <option value="Metropolitan Life" className="text-slate-900">Metropolitan Life</option>
+                  <option value="Botswana Life" className="text-slate-900">Botswana Life</option>
+                  <option value="Hollard Life" className="text-slate-900">Hollard Life</option>
+                  <option value="Bona Life" className="text-slate-900">Bona Life</option>
                 </select>
               </div>
               <div>
@@ -319,7 +323,7 @@ export default function ParagonHomepage() {
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
                   rows="3"
                   placeholder="Tell us about your coverage needs..."
                 />
@@ -339,7 +343,7 @@ export default function ParagonHomepage() {
 
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/26775257556"
+        href="https://wa.me/26771515175"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-full shadow-lg transition-all duration-300 group"
         aria-label="Chat on WhatsApp"
       >
@@ -351,11 +355,11 @@ export default function ParagonHomepage() {
       <div className="hidden md:block bg-gradient-to-r from-[#1A4D6D] via-[#00A3E0] to-[#00B8D4] text-white py-2.5 px-4 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm gap-2">
           <div className="flex flex-wrap gap-4 md:gap-6">
-            <a href="https://wa.me/26775257556" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
+            <a href="https://wa.me/26771515175" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
               <MessageCircle size={16} />
-              <span className="font-semibold">WhatsApp: +267 75 257 556</span>
+              <span className="font-semibold">WhatsApp: +267 71 515 175</span>
             </a>
-            <a href="tel:+26736237000" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
+            <a href="tel:+26771515175" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
               <Phone size={16} />
               <span className="font-semibold">Call: +267 36 23 700</span>
             </a>
@@ -435,7 +439,7 @@ export default function ParagonHomepage() {
         )}
       </header>
 
-      {/* Hero Carousel Section */}
+      {/* Hero Carousel Section - NBFIRA text removed */}
       <section id="home" className="relative text-white overflow-hidden">
         <div className="relative w-full h-[500px] md:h-[580px]">
           {heroSlides.map((slide, index) => (
@@ -455,13 +459,8 @@ export default function ParagonHomepage() {
                 <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradientOpacity}`}></div>
               </div>
               
-              <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center py-8">
-                <div className="max-w-3xl pb-24 md:pb-20">
-                  <div className="hidden md:inline-flex items-center gap-2 mb-4 border-l-4 border-[#00A3E0] pl-3 py-1">
-                    <Shield size={18} className="text-[#00A3E0]" />
-                    <span className="text-white text-sm font-semibold">Licensed by NBFIRA</span>
-                  </div>
-                  
+              <div className="relative h-full max-w-7xl mx-auto px-4 flex items-end md:items-center pb-24 md:pb-20 pt-8">
+                <div className="max-w-3xl">
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
                     <span className="text-white">{slide.title}</span>{' '}
                     <span className="text-[#00E5FF]">{slide.titleAccent}</span>
@@ -494,15 +493,13 @@ export default function ParagonHomepage() {
           ))}
         </div>
 
-        {/* Previous/Next buttons */}
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
-          <button onClick={prevSlide} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors" aria-label="Previous slide">
-            <ChevronLeft size={24} />
-          </button>
-          <button onClick={nextSlide} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors" aria-label="Next slide">
-            <ChevronRight size={24} />
-          </button>
-        </div>
+        {/* Previous/Next buttons — hidden on mobile, left/right on desktop */}
+        <button onClick={prevSlide} className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors" aria-label="Previous slide">
+          <ChevronLeft size={24} className="text-white" />
+        </button>
+        <button onClick={nextSlide} className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors" aria-label="Next slide">
+          <ChevronRight size={24} className="text-white" />
+        </button>
 
         {/* Carousel indicators */}
         <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex justify-center gap-4 z-30">
@@ -574,7 +571,7 @@ export default function ParagonHomepage() {
         </svg>
       </div>
 
-      {/* Providers Section */}
+      {/* Providers Section - ALL LOGOS SAME SIZE */}
       <section id="providers" className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -627,7 +624,7 @@ export default function ParagonHomepage() {
                           <strong>Note:</strong> Product details and benefits are subject to policy terms and conditions. Contact us for personalized quotes and complete product information.
                         </p>
                       </div>
-                      <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 group relative z-10" onClick={() => setQuoteModalOpen(true)}>
+                      <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 group relative z-10" onClick={() => { setFormData(prev => ({...prev, provider: provider.name})); setQuoteModalOpen(true); }}>
                         Get Quote from {provider.name}
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -765,8 +762,8 @@ export default function ParagonHomepage() {
                   <span className="text-[#00B8D4] mt-1">📍</span>
                   <span>Plot 50371, Fairgrounds Office Park<br/>Gaborone, Botswana</span>
                 </li>
-                <li><a href="tel:+26736237000" className="hover:text-[#00B8D4] transition-colors">📞 +267 36 23 700</a></li>
-                <li><a href="https://wa.me/26775257556" className="hover:text-[#00B8D4] transition-colors">💬 +267 75 257 556</a></li>
+                <li><a href="tel:+26736237000" className="hover:text-[#00B8D4] transition-colors">📞 +267 71 515 175</a></li>
+                <li><a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition-colors">💬 +267 71 515 175</a></li>
                 <li><a href="mailto:info@paragoninsurance.bw" className="hover:text-[#00B8D4] transition-colors">✉️ info@paragoninsurance.bw</a></li>
                 <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
                   <strong className="text-[#00B8D4]">Business Hours:</strong><br/>
