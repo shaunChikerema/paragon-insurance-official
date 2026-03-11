@@ -23,81 +23,37 @@ export default function ParagonHomepage() {
     const style = document.createElement('style');
     style.textContent = `
       @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
       }
       @keyframes slideInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+        from { opacity: 0; transform: translateX(-40px); }
+        to { opacity: 1; transform: translateX(0); }
       }
       @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+        from { opacity: 0; transform: translateX(40px); }
+        to { opacity: 1; transform: translateX(0); }
       }
       @keyframes scaleIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
       }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .animate-slide-in-left {
-        animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .animate-slide-in-right {
-        animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .animate-scale-in {
-        animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .scroll-animate {
-        opacity: 0;
-      }
-      .scroll-animate.animate-in {
-        opacity: 1;
-      }
+      .animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+      .animate-slide-in-left { animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+      .animate-slide-in-right { animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+      .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+      .scroll-animate { opacity: 0; }
+      .scroll-animate.animate-in { opacity: 1; }
     `;
     document.head.appendChild(style);
 
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('animate-in');
       });
     }, observerOptions);
 
-    // Observe all scroll-animate elements
     const animateElements = document.querySelectorAll('.scroll-animate');
     animateElements.forEach(el => observer.observe(el));
 
@@ -107,7 +63,6 @@ export default function ParagonHomepage() {
     };
   }, []);
 
-  // Helper function to generate responsive image attributes
   const getResponsiveImage = (filename) => ({
     src: `/images/large/${filename}`,
     srcSet: `
@@ -235,31 +190,19 @@ export default function ParagonHomepage() {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [isAutoPlaying, heroSlides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    setIsAutoPlaying(false);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-    setIsAutoPlaying(false);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-    setIsAutoPlaying(false);
-  };
+  const nextSlide = () => { setCurrentSlide((prev) => (prev + 1) % heroSlides.length); setIsAutoPlaying(false); };
+  const prevSlide = () => { setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length); setIsAutoPlaying(false); };
+  const goToSlide = (index) => { setCurrentSlide(index); setIsAutoPlaying(false); };
 
   return (
     <div className="min-h-screen bg-white">
+
       {/* Quote Request Modal */}
       {quoteModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
@@ -273,67 +216,32 @@ export default function ParagonHomepage() {
             <form onSubmit={handleQuoteSubmit} className="p-6 space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Full Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
-                  placeholder="John Doe"
-                />
+                <input type="text" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400" placeholder="John Doe" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Phone Number *</label>
-                <input
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
-                  placeholder="+267 XX XXX XXX"
-                />
+                <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400" placeholder="+267 XX XXX XXX" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Email Address *</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
-                  placeholder="john@example.com"
-                />
+                <input type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400" placeholder="john@example.com" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Preferred Provider (Optional)</label>
-                <select
-                  value={formData.provider}
-                  onChange={(e) => setFormData({...formData, provider: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white"
-                >
-                  <option value="" className="text-slate-900">Any Provider</option>
-                  <option value="Metropolitan Life" className="text-slate-900">Metropolitan Life</option>
-                  <option value="Botswana Life" className="text-slate-900">Botswana Life</option>
-                  <option value="Hollard Life" className="text-slate-900">Hollard Life</option>
-                  <option value="Bona Life" className="text-slate-900">Bona Life</option>
+                <select value={formData.provider} onChange={(e) => setFormData({...formData, provider: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white">
+                  <option value="">Any Provider</option>
+                  <option value="Metropolitan Life">Metropolitan Life</option>
+                  <option value="Botswana Life">Botswana Life</option>
+                  <option value="Hollard Life">Hollard Life</option>
+                  <option value="Bona Life">Bona Life</option>
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Additional Information</label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400"
-                  rows="3"
-                  placeholder="Tell us about your coverage needs..."
-                />
+                <textarea value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400" rows="3" placeholder="Tell us about your coverage needs..." />
               </div>
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
-              >
-                Submit Request
-                <ArrowRight size={20} />
+              <button type="submit" className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                Submit Request <ArrowRight size={20} />
               </button>
               <p className="text-sm text-slate-600 text-center">We'll respond within 1 hour during business hours</p>
             </form>
@@ -342,11 +250,7 @@ export default function ParagonHomepage() {
       )}
 
       {/* Floating WhatsApp Button */}
-      <a 
-        href="https://wa.me/26771515175"
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-full shadow-lg transition-all duration-300 group"
-        aria-label="Chat on WhatsApp"
-      >
+      <a href="https://wa.me/26771515175" className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-full shadow-lg transition-all duration-300 group" aria-label="Chat on WhatsApp">
         <MessageCircle size={28} />
         <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">1</span>
       </a>
@@ -372,18 +276,12 @@ export default function ParagonHomepage() {
         </div>
       </div>
 
-      {/* Header - With Logo */}
+      {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-40 border-b border-[#00A3E0]/20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
-            <img 
-              src="/images/paragon-logo-clean.webp"
-              alt="Paragon Insurance Brokers - You are in safe hands"
-              className="h-16 w-auto"
-            />
+            <img src="/images/paragon-logo-clean.webp" alt="Paragon Insurance Brokers - You are in safe hands" className="h-16 w-auto" />
           </Link>
-          
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8 text-[#1A4D6D] font-semibold items-center">
             <Link href="/" className="hover:text-[#00A3E0] transition-colors relative group">
               Home
@@ -405,86 +303,49 @@ export default function ParagonHomepage() {
               Get Quote
             </button>
           </nav>
-
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-[#1A4D6D] hover:text-[#00A3E0] transition-colors"
-          >
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-[#1A4D6D] hover:text-[#00A3E0] transition-colors">
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-[#00A3E0]/20 shadow-md">
             <nav className="flex flex-col p-4 space-y-3">
-              <Link href="/" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">
-                Home
-              </Link>
-              <Link href="/about" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">
-                About
-              </Link>
-              <button onClick={() => smoothScroll('providers')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">
-                Providers
-              </button>
-              <Link href="/contact" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">
-                Contact
-              </Link>
-              <button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-3 px-6 rounded-xl font-bold shadow-md transition-shadow">
-                Get Quote
-              </button>
+              <Link href="/" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">Home</Link>
+              <Link href="/about" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">About</Link>
+              <button onClick={() => smoothScroll('providers')} className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">Providers</button>
+              <Link href="/contact" className="text-left text-[#1A4D6D] hover:text-[#00A3E0] font-semibold py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors">Contact</Link>
+              <button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] text-white py-3 px-6 rounded-xl font-bold shadow-md transition-shadow">Get Quote</button>
             </nav>
           </div>
         )}
       </header>
 
-      {/* Hero Carousel Section - NBFIRA text removed */}
+      {/* ===================== HERO CAROUSEL ===================== */}
       <section id="home" className="relative text-white overflow-hidden">
         <div className="relative w-full h-[500px] md:h-[580px]">
           {heroSlides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-              }`}
-            >
+            <div key={slide.id} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
               <div className="absolute inset-0 w-full h-full">
-                <img 
-                  {...getResponsiveImage(slide.image)}
-                  alt={slide.title}
-                  className="w-full h-full object-cover"
-                  loading={index === 0 ? "eager" : "lazy"}
-                />
+                <img {...getResponsiveImage(slide.image)} alt={slide.title} className="w-full h-full object-cover" loading={index === 0 ? "eager" : "lazy"} />
                 <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradientOpacity}`}></div>
               </div>
-              
               <div className="relative h-full max-w-7xl mx-auto px-4 flex items-end md:items-center pb-24 md:pb-20 pt-8">
                 <div className="max-w-3xl">
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
                     <span className="text-white">{slide.title}</span>{' '}
                     <span className="text-[#00E5FF]">{slide.titleAccent}</span>
                   </h2>
-                  
                   <div className="inline-flex items-center gap-2 mb-5">
                     <div className="w-1 h-8 bg-[#00A3E0] rounded-full"></div>
-                    <p className="text-xl md:text-2xl font-bold text-white">
-                      You are in safe hands
-                    </p>
+                    <p className="text-xl md:text-2xl font-bold text-white">You are in safe hands</p>
                   </div>
-                  
-                  <p className="text-base md:text-lg mb-6 text-white leading-relaxed drop-shadow-md">
-                    {slide.subtitle}
-                  </p>
-                  
-                  {/* CTA Buttons */}
+                  <p className="text-base md:text-lg mb-6 text-white leading-relaxed drop-shadow-md">{slide.subtitle}</p>
                   <div className="flex flex-wrap gap-4">
                     <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-md hover:shadow-lg flex items-center gap-2 group">
-                      {slide.cta}
-                      <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                      {slide.cta} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                     <button onClick={() => smoothScroll('providers')} className="border-2 border-white hover:bg-white hover:text-[#00A3E0] px-8 py-4 rounded-xl font-bold text-lg transition-all backdrop-blur-sm bg-white/10">
-                      Learn More
+                      View Providers
                     </button>
                   </div>
                 </div>
@@ -492,28 +353,17 @@ export default function ParagonHomepage() {
             </div>
           ))}
         </div>
-
-        {/* Previous/Next buttons — hidden on mobile, left/right on desktop */}
         <button onClick={prevSlide} className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors" aria-label="Previous slide">
           <ChevronLeft size={24} className="text-white" />
         </button>
         <button onClick={nextSlide} className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors" aria-label="Next slide">
           <ChevronRight size={24} className="text-white" />
         </button>
-
-        {/* Carousel indicators */}
         <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex justify-center gap-4 z-30">
           {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`transition-all ${index === currentSlide ? 'w-12 bg-white' : 'w-4 bg-white/50 hover:bg-white/70'} h-4 rounded-full shadow-md border border-white/30`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
+            <button key={index} onClick={() => goToSlide(index)} className={`transition-all ${index === currentSlide ? 'w-12 bg-white' : 'w-4 bg-white/50 hover:bg-white/70'} h-4 rounded-full shadow-md border border-white/30`} aria-label={`Go to slide ${index + 1}`} />
           ))}
         </div>
-
-        {/* Wave SVG separator */}
         <div className="absolute -bottom-px left-0 right-0 z-20 pointer-events-none">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" preserveAspectRatio="none">
             <path d="M0 120L1440 120L1440 0C1440 0 1080 80 720 80C360 80 0 0 0 0L0 120Z" fill="white"/>
@@ -521,8 +371,72 @@ export default function ParagonHomepage() {
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white">
+      {/* ===================== PROVIDERS (moved up) ===================== */}
+      <section id="providers" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-[#00A3E0]/10 text-[#00A3E0] px-4 py-2 rounded-full text-sm font-bold mb-4">
+              OUR PARTNERS
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1A4D6D] mb-4">
+              Compare <span className="text-[#00A3E0]">Leading Insurers</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              We work with Botswana's top insurance providers to find you the perfect coverage
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {providers.map((provider, index) => (
+              <div key={provider.id} className="scroll-animate group relative animate-fade-in-up" style={{animationDelay: `${0.15 + index * 0.1}s`, animationFillMode: 'forwards'}}>
+                <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:border-[#00A3E0]/30 bg-white">
+                  <div className="relative h-72 overflow-hidden">
+                    <img {...getResponsiveImage(provider.image)} alt={provider.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h3 className="text-3xl font-bold mb-2">{provider.name}</h3>
+                      <p className="text-[#00B8D4] font-semibold text-lg">{provider.tagline}</p>
+                    </div>
+                  </div>
+                  <div className={`bg-gradient-to-b from-slate-50 to-white transition-all duration-500 ${expandedProvider === provider.id ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                    <div className="p-6 pb-8">
+                      <p className="text-slate-700 mb-6 leading-relaxed">{provider.description}</p>
+                      <h4 className="font-bold text-[#1A4D6D] mb-4 flex items-center gap-2 text-lg">
+                        <CheckCircle className="text-[#00B8D4]" size={22} /> Key Features:
+                      </h4>
+                      <ul className="space-y-3 mb-6">
+                        {provider.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-start gap-3 text-slate-600">
+                            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] mt-2 flex-shrink-0"></div>
+                            <span className="leading-relaxed">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="bg-slate-100 border-l-4 border-[#00A3E0] p-4 rounded-lg mb-6">
+                        <p className="text-sm text-slate-600 italic">
+                          <strong>Note:</strong> Product details and benefits are subject to policy terms and conditions. Contact us for personalized quotes and complete product information.
+                        </p>
+                      </div>
+                      <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 group relative z-10"
+                        onClick={() => { setFormData(prev => ({...prev, provider: provider.name})); setQuoteModalOpen(true); }}>
+                        Get Quote from {provider.name} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
+                  <button onClick={() => setExpandedProvider(expandedProvider === provider.id ? null : provider.id)}
+                    className="w-full bg-gradient-to-r from-[#00B8D4] to-[#00A3E0] hover:from-[#00a0ba] hover:to-[#0090c7] text-white py-4 flex items-center justify-center gap-2 transition-all duration-300 font-semibold shadow-sm hover:shadow-md">
+                    <span>{expandedProvider === provider.id ? 'Show Less' : 'Learn More'}</span>
+                    <ChevronDown className={`transition-transform duration-300 ${expandedProvider === provider.id ? 'rotate-180' : ''}`} size={20} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== WHY CHOOSE PARAGON (moved down) ===================== */}
+      <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block bg-[#00A3E0]/10 text-[#00A3E0] px-4 py-2 rounded-full text-sm font-bold mb-4">
@@ -544,7 +458,6 @@ export default function ParagonHomepage() {
               <h3 className="text-2xl font-bold text-[#1A4D6D] mb-3 text-center">Fast Response Time</h3>
               <p className="text-slate-600 text-center leading-relaxed">Get personalized quotes from multiple providers quickly. Fast, efficient, and hassle-free service during business hours.</p>
             </div>
-
             <div className="scroll-animate group bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-500 border-t-4 border-[#00B8D4] animate-fade-in-up" style={{animationDelay: '0.25s', animationFillMode: 'forwards'}}>
               <div className="bg-gradient-to-br from-[#00B8D4] to-[#00A3E0] w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:scale-110">
                 <Users className="text-white" size={32} />
@@ -552,7 +465,6 @@ export default function ParagonHomepage() {
               <h3 className="text-2xl font-bold text-[#1A4D6D] mb-3 text-center">Trusted by Families</h3>
               <p className="text-slate-600 text-center leading-relaxed">Helping families across Botswana find the right coverage with expert guidance and comprehensive solutions.</p>
             </div>
-
             <div className="scroll-animate group bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-500 border-t-4 border-[#00A3E0] animate-fade-in-up" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
               <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:scale-110">
                 <CheckCircle className="text-white" size={32} />
@@ -564,93 +476,7 @@ export default function ParagonHomepage() {
         </div>
       </section>
 
-      {/* Curved Divider */}
-      <div className="relative">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 0L1440 0L1440 120C1440 120 1080 40 720 40C360 40 0 120 0 120L0 0Z" fill="white"/>
-        </svg>
-      </div>
-
-      {/* Providers Section - ALL LOGOS SAME SIZE */}
-      <section id="providers" className="py-20 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-block bg-[#00A3E0]/10 text-[#00A3E0] px-4 py-2 rounded-full text-sm font-bold mb-4">
-              OUR PARTNERS
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1A4D6D] mb-4">
-              Compare <span className="text-[#00A3E0]">Leading Insurers</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              We work with Botswana's top insurance providers to find you the perfect coverage
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {providers.map((provider, index) => (
-              <div key={provider.id} className="scroll-animate group relative animate-fade-in-up" style={{animationDelay: `${0.15 + index * 0.1}s`, animationFillMode: 'forwards'}}>
-                <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:border-[#00A3E0]/30 bg-white">
-                  <div className="relative h-72 overflow-hidden">
-                    <img 
-                      {...getResponsiveImage(provider.image)}
-                      alt={provider.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent"></div>
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="text-3xl font-bold mb-2">{provider.name}</h3>
-                      <p className="text-[#00B8D4] font-semibold text-lg">{provider.tagline}</p>
-                    </div>
-                  </div>
-
-                  <div className={`bg-gradient-to-b from-slate-50 to-white transition-all duration-500 ${expandedProvider === provider.id ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                    <div className="p-6 pb-8">
-                      <p className="text-slate-700 mb-6 leading-relaxed">{provider.description}</p>
-                      <h4 className="font-bold text-[#1A4D6D] mb-4 flex items-center gap-2 text-lg">
-                        <CheckCircle className="text-[#00B8D4]" size={22} />
-                        Key Features:
-                      </h4>
-                      <ul className="space-y-3 mb-6">
-                        {provider.benefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-slate-600">
-                            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] mt-2 flex-shrink-0"></div>
-                            <span className="leading-relaxed">{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="bg-slate-100 border-l-4 border-[#00A3E0] p-4 rounded-lg mb-6">
-                        <p className="text-sm text-slate-600 italic">
-                          <strong>Note:</strong> Product details and benefits are subject to policy terms and conditions. Contact us for personalized quotes and complete product information.
-                        </p>
-                      </div>
-                      <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 group relative z-10" onClick={() => { setFormData(prev => ({...prev, provider: provider.name})); setQuoteModalOpen(true); }}>
-                        Get Quote from {provider.name}
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => setExpandedProvider(expandedProvider === provider.id ? null : provider.id)}
-                    className="w-full bg-gradient-to-r from-[#00B8D4] to-[#00A3E0] hover:from-[#00a0ba] hover:to-[#0090c7] text-white py-4 flex items-center justify-center gap-2 transition-all duration-300 font-semibold shadow-sm hover:shadow-md"
-                  >
-                    <span>
-                      {expandedProvider === provider.id ? 'Show Less' : 'Learn More'}
-                    </span>
-                    <ChevronDown 
-                      className={`transition-transform duration-300 ${expandedProvider === provider.id ? 'rotate-180' : ''}`} 
-                      size={20} 
-                    />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
+      {/* ===================== HOW IT WORKS ===================== */}
       <section id="how-it-works" className="py-20 bg-gradient-to-b from-white via-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -660,34 +486,25 @@ export default function ParagonHomepage() {
             <h2 className="text-4xl md:text-5xl font-bold text-[#1A4D6D] mb-4">How It Works</h2>
             <p className="text-xl text-slate-600">Get started in 3 simple steps</p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="relative scroll-animate animate-scale-in" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
               <div className="text-center bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 border-t-4 border-[#00A3E0] hover:-translate-y-1">
-                <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] text-white w-20 h-20 rounded-xl flex items-center justify-center text-4xl font-bold mx-auto mb-6 shadow-md transition-all duration-500 hover:shadow-xl hover:scale-110">
-                  1
-                </div>
+                <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] text-white w-20 h-20 rounded-xl flex items-center justify-center text-4xl font-bold mx-auto mb-6 shadow-md">1</div>
                 <h3 className="text-2xl font-bold text-[#1A4D6D] mb-4">Choose Provider</h3>
                 <p className="text-slate-600 leading-relaxed">Browse our trusted partners and select the one that best fits your needs, or let us recommend options</p>
               </div>
               <div className="hidden md:block absolute top-14 -right-4 w-12 h-1 bg-gradient-to-r from-[#00B8D4] to-transparent"></div>
             </div>
-
             <div className="relative scroll-animate animate-scale-in" style={{animationDelay: '0.25s', animationFillMode: 'forwards'}}>
               <div className="text-center bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 border-t-4 border-[#00B8D4] hover:-translate-y-1">
-                <div className="bg-gradient-to-br from-[#00B8D4] to-[#00A3E0] text-white w-20 h-20 rounded-xl flex items-center justify-center text-4xl font-bold mx-auto mb-6 shadow-md transition-all duration-500 hover:shadow-xl hover:scale-110">
-                  2
-                </div>
+                <div className="bg-gradient-to-br from-[#00B8D4] to-[#00A3E0] text-white w-20 h-20 rounded-xl flex items-center justify-center text-4xl font-bold mx-auto mb-6 shadow-md">2</div>
                 <h3 className="text-2xl font-bold text-[#1A4D6D] mb-4">Submit Details</h3>
                 <p className="text-slate-600 leading-relaxed">Fill out a quick form with your basic information and coverage needs via our website or WhatsApp</p>
               </div>
               <div className="hidden md:block absolute top-14 -right-4 w-12 h-1 bg-gradient-to-r from-[#00B8D4] to-transparent"></div>
             </div>
-
             <div className="text-center bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 border-t-4 border-[#00A3E0] scroll-animate animate-scale-in hover:-translate-y-1" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
-              <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] text-white w-20 h-20 rounded-xl flex items-center justify-center text-4xl font-bold mx-auto mb-6 shadow-md transition-all duration-500 hover:shadow-xl hover:scale-110">
-                3
-              </div>
+              <div className="bg-gradient-to-br from-[#00A3E0] to-[#00B8D4] text-white w-20 h-20 rounded-xl flex items-center justify-center text-4xl font-bold mx-auto mb-6 shadow-md">3</div>
               <h3 className="text-2xl font-bold text-[#1A4D6D] mb-4">Get Your Quote</h3>
               <p className="text-slate-600 leading-relaxed">Receive personalized quotes and expert guidance via WhatsApp or phone during business hours</p>
             </div>
@@ -695,7 +512,7 @@ export default function ParagonHomepage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ===================== CTA ===================== */}
       <section className="py-24 bg-gradient-to-br from-[#00A3E0] via-[#00B8D4] to-[#00A3E0] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -703,39 +520,27 @@ export default function ParagonHomepage() {
         </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">Ready to Protect Your Family?</h2>
-          <p className="text-2xl mb-3 text-cyan-100 font-bold">
-            You are in safe hands
-          </p>
+          <p className="text-2xl mb-3 text-cyan-100 font-bold">You are in safe hands</p>
           <p className="text-xl mb-10 text-white/90 leading-relaxed max-w-2xl mx-auto">
             Get personalized quotes from Botswana's top insurers today. Fast, free, and no obligation.
           </p>
           <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-12 py-5 rounded-xl font-bold text-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 mx-auto group">
-            Request Your Free Quote
-            <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
+            Request Your Free Quote <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
           </button>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ===================== FOOTER ===================== */}
       <footer id="footer-contact" className="bg-gradient-to-b from-[#1A4D6D] to-[#0f3041] text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div>
               <div className="mb-6">
-                <img 
-                  src="/images/paragon-logo.webp"
-                  alt="Paragon Insurance Brokers"
-                  className="h-20 w-auto"
-                />
+                <img src="/images/paragon-logo.webp" alt="Paragon Insurance Brokers" className="h-20 w-auto" />
               </div>
-              <p className="text-slate-300 mb-3 leading-relaxed italic">
-                You are in safe hands
-              </p>
-              <p className="text-slate-400 text-sm">
-                Licensed by NBFIRA
-              </p>
+              <p className="text-slate-300 mb-3 leading-relaxed italic">You are in safe hands</p>
+              <p className="text-slate-400 text-sm">Licensed by NBFIRA</p>
             </div>
-
             <div>
               <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Our Partners</h4>
               <ul className="space-y-3 text-slate-300">
@@ -745,7 +550,6 @@ export default function ParagonHomepage() {
                 <li className="hover:text-[#00B8D4] transition-colors">Bona Life</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Quick Links</h4>
               <ul className="space-y-3 text-slate-300">
@@ -754,7 +558,6 @@ export default function ParagonHomepage() {
                 <li><Link href="/contact" className="hover:text-[#00B8D4] transition-colors inline-block">Contact</Link></li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Contact Us</h4>
               <ul className="space-y-3 text-slate-300">
@@ -773,12 +576,12 @@ export default function ParagonHomepage() {
               </ul>
             </div>
           </div>
-
           <div className="border-t border-[#00A3E0]/30 pt-8 text-center text-slate-400">
             <p>&copy; 2026 Paragon Insurance Brokers. Licensed by NBFIRA. All rights reserved.</p>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }
