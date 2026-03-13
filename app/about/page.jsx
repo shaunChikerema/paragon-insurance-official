@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Shield, Award, Users, Heart, Target, CheckCircle, ArrowRight, MessageCircle, Phone, Menu, X, TrendingUp, Clock, MapPin } from 'lucide-react';
+import { Shield, Award, Users, Heart, Target, CheckCircle, ArrowRight, MessageCircle, Phone, Mail, Menu, X, TrendingUp, Clock, MapPin } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -114,7 +114,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Quote Request Modal */}
       {quoteModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
@@ -215,9 +215,13 @@ export default function AboutPage() {
               <MessageCircle size={16} />
               <span className="font-semibold">WhatsApp: +267 71 515 175</span>
             </a>
-            <a href="tel:+26736237000" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
+            <a href="tel:+2673111189" className="hidden sm:flex items-center gap-2 hover:text-cyan-100 transition-colors">
               <Phone size={16} />
-              <span className="font-semibold">Call: +267 71 515 175</span>
+              <span className="font-semibold">Office: 311 1189</span>
+            </a>
+            <a href="mailto:info@paragoninsurancebrokers.co.bw" className="hidden md:flex items-center gap-2 hover:text-cyan-100 transition-colors">
+              <Mail size={16} />
+              <span className="font-semibold">info@paragoninsurancebrokers.co.bw</span>
             </a>
           </div>
           <div className="flex gap-3">
@@ -233,7 +237,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
             <img 
-              src="/images/paragon-logo-clean.webp"
+              src="/images/logo/paragon-logo-clean.webp"
               alt="Paragon Insurance Brokers - You are in safe hands"
               className="h-16 w-auto"
             />
@@ -344,7 +348,7 @@ export default function AboutPage() {
             </div>
             <div className="scroll-animate animate-slide-in-right relative bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-md p-12 flex items-center justify-center border border-slate-200" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
               <img 
-                src="/images/paragon-logo-clean.webp"
+                src="/images/logo/paragon-logo-clean.webp"
                 alt="Paragon Insurance Brokers"
                 className="w-full max-w-md"
               />
@@ -503,7 +507,7 @@ export default function AboutPage() {
             <div>
               <div className="mb-6">
                 <img 
-                  src="/images/paragon-logo.webp"
+                  src="/images/logo/paragon-logo.webp"
                   alt="Paragon Insurance Brokers"
                   className="h-20 w-auto"
                 />
@@ -540,15 +544,19 @@ export default function AboutPage() {
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-start gap-2">
                   <MapPin size={18} className="text-[#00B8D4] mt-1 flex-shrink-0" />
-                  <span>Plot 50371, Fairgrounds Office Park<br/>Gaborone, Botswana</span>
+                  <span>Plot 140 Unit 1, Kgale Terrace<br/>Gaborone International Finance Park<br/>Gaborone, Botswana</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone size={18} className="text-[#00B8D4]" />
-                  <a href="tel:+26771515175" className="hover:text-[#00B8D4] transition-colors">267 71 515 175</a>
+                  <a href="tel:+2673111189" className="hover:text-[#00B8D4] transition-colors">311 1189 (Office)</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <MessageCircle size={18} className="text-[#00B8D4]" />
-                  <a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition-colors">+267 71 515 175</a>
+                  <a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition-colors">+267 71 515 175 (WhatsApp)</a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Mail size={18} className="text-[#00B8D4]" />
+                  <a href="mailto:info@paragoninsurancebrokers.co.bw" className="hover:text-[#00B8D4] transition-colors break-all">info@paragoninsurancebrokers.co.bw</a>
                 </li>
                 <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
                   <div className="flex items-start gap-2">

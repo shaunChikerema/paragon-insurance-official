@@ -14,7 +14,7 @@ export default function ParagonHomepage() {
     name: '',
     phone: '',
     email: '',
-    provider: '',
+    provider: 'Compare All',
     message: ''
   });
 
@@ -185,7 +185,7 @@ export default function ParagonHomepage() {
     const whatsappMessage = `Hi, I'd like a quote!%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AProvider: ${formData.provider || 'Any'}%0AMessage: ${formData.message}`;
     window.open(`https://wa.me/26771515175?text=${whatsappMessage}`, '_blank');
     setQuoteModalOpen(false);
-    setFormData({ name: '', phone: '', email: '', provider: '', message: '' });
+    setFormData({ name: '', phone: '', email: '', provider: 'Compare All', message: '' });
   };
 
   useEffect(() => {
@@ -201,7 +201,7 @@ export default function ParagonHomepage() {
   const goToSlide = (index) => { setCurrentSlide(index); setIsAutoPlaying(false); };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
 
       {/* Quote Request Modal */}
       {quoteModalOpen && (
@@ -229,7 +229,8 @@ export default function ParagonHomepage() {
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Preferred Provider (Optional)</label>
                 <select value={formData.provider} onChange={(e) => setFormData({...formData, provider: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white">
-                  <option value="">Any Provider</option>
+                  <option value="Compare All">Compare All Providers</option>
+                  <option disabled>──────────────</option>
                   <option value="Metropolitan Life">Metropolitan Life</option>
                   <option value="Botswana Life">Botswana Life</option>
                   <option value="Hollard Life">Hollard Life</option>
@@ -256,19 +257,22 @@ export default function ParagonHomepage() {
       </a>
 
       {/* Top Contact Bar */}
-      <div className="hidden md:block bg-gradient-to-r from-[#1A4D6D] via-[#00A3E0] to-[#00B8D4] text-white py-2.5 px-4 shadow-sm">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm gap-2">
+      <div className="bg-gradient-to-r from-[#1A4D6D] via-[#00A3E0] to-[#00B8D4] text-white py-2.5 px-4 shadow-sm">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm gap-2">
           <div className="flex flex-wrap gap-4 md:gap-6">
             <a href="https://wa.me/26771515175" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
               <MessageCircle size={16} />
               <span className="font-semibold">WhatsApp: +267 71 515 175</span>
             </a>
-            <a href="tel:+26771515175" className="flex items-center gap-2 hover:text-cyan-100 transition-colors">
+            <a href="tel:+2673111189" className="hidden sm:flex items-center gap-2 hover:text-cyan-100 transition-colors">
               <Phone size={16} />
-              <span className="font-semibold">Call: +267 36 23 700</span>
+              <span className="font-semibold">Office: 311 1189</span>
+            </a>
+            <a href="mailto:info@paragoninsurancebrokers.co.bw" className="hidden md:flex items-center gap-2 hover:text-cyan-100 transition-colors">
+              <span className="font-semibold">info@paragoninsurancebrokers.co.bw</span>
             </a>
           </div>
-          <div className="flex gap-3">
+          <div>
             <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-5 py-2 rounded-lg font-bold transition-colors shadow-sm">
               Get Quote
             </button>
@@ -563,15 +567,15 @@ export default function ParagonHomepage() {
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-start gap-2">
                   <span className="text-[#00B8D4] mt-1">📍</span>
-                  <span>Plot 50371, Fairgrounds Office Park<br/>Gaborone, Botswana</span>
+                  <span>Plot 140 Unit 1, Kgale Terrace<br/>Gaborone International Finance Park<br/>Gaborone, Botswana</span>
                 </li>
-                <li><a href="tel:+26736237000" className="hover:text-[#00B8D4] transition-colors">📞 +267 71 515 175</a></li>
-                <li><a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition-colors">💬 +267 71 515 175</a></li>
-                <li><a href="mailto:info@paragoninsurance.bw" className="hover:text-[#00B8D4] transition-colors">✉️ info@paragoninsurance.bw</a></li>
+                <li><a href="tel:+2673111189" className="hover:text-[#00B8D4] transition-colors">📞 311 1189 (Office)</a></li>
+                <li><a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition-colors">💬 +267 71 515 175 (WhatsApp)</a></li>
+                <li><a href="mailto:info@paragoninsurancebrokers.co.bw" className="hover:text-[#00B8D4] transition-colors break-all">✉️ info@paragoninsurancebrokers.co.bw</a></li>
                 <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
                   <strong className="text-[#00B8D4]">Business Hours:</strong><br/>
-                  Mon-Fri: 8:00 AM - 5:00 PM<br/>
-                  Sat: 9:00 AM - 1:00 PM
+                  Mon–Fri: 8:00 AM – 5:00 PM<br/>
+                  Sat: 9:00 AM – 1:00 PM
                 </li>
               </ul>
             </div>
