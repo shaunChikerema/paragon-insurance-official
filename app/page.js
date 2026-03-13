@@ -14,11 +14,10 @@ export default function ParagonHomepage() {
     name: '',
     phone: '',
     email: '',
-    provider: '',
+    providers: [],
     message: ''
   });
 
-  // Add scroll animation styles and intersection observer
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
@@ -80,7 +79,6 @@ export default function ParagonHomepage() {
       image: "hero-slide-1.webp",
       title: "Compare Life Insurance from",
       titleAccent: "Botswana's Top Providers",
-      subtitle: "Get personalized quotes from top insurers in minutes",
       cta: "Request Free Quote",
       gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     },
@@ -89,7 +87,6 @@ export default function ParagonHomepage() {
       image: "hero-slide-2.webp",
       title: "Get Your Quote Within",
       titleAccent: "1 Hour",
-      subtitle: "Fast, professional service from Botswana's most trusted insurance broker",
       cta: "Get Started Now",
       gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     },
@@ -98,16 +95,14 @@ export default function ParagonHomepage() {
       image: "hero-slide-3.webp",
       title: "Protect Your Family's",
       titleAccent: "Future Today",
-      subtitle: "Trusted by families nationwide for expert insurance guidance and personalized service",
       cta: "Get Protected",
       gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     },
     {
       id: 4,
       image: "hero-slide-4.webp",
-      title: "Free Quotes",
+      title: "Free Quotes,",
       titleAccent: "No Obligation",
-      subtitle: "Compare options, make informed decisions, protect what matters most",
       cta: "Compare Now",
       gradientOpacity: "from-slate-900/85 via-slate-900/50 to-transparent"
     }
@@ -182,10 +177,11 @@ export default function ParagonHomepage() {
 
   const handleQuoteSubmit = (e) => {
     e.preventDefault();
-    const whatsappMessage = `Hi, I'd like a quote!%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AProvider: ${formData.provider || 'Any'}%0AMessage: ${formData.message}`;
+    const providerList = formData.providers?.length ? formData.providers.join(', ') : 'Any / All Providers';
+    const whatsappMessage = `Hi, I'd like a quote!%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AProviders: ${providerList}%0AMessage: ${formData.message}`;
     window.open(`https://wa.me/26771515175?text=${whatsappMessage}`, '_blank');
     setQuoteModalOpen(false);
-    setFormData({ name: '', phone: '', email: '', provider: '', message: '' });
+    setFormData({ name: '', phone: '', email: '', providers: [], message: '' });
   };
 
   useEffect(() => {
@@ -227,14 +223,54 @@ export default function ParagonHomepage() {
                 <input type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white placeholder:text-slate-400" placeholder="john@example.com" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Preferred Provider (Optional)</label>
-                <select value={formData.provider} onChange={(e) => setFormData({...formData, provider: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white">
-                  <option value="">Any Provider</option>
-                  <option value="Metropolitan Life">Metropolitan Life</option>
-                  <option value="Botswana Life">Botswana Life</option>
-                  <option value="Hollard Life">Hollard Life</option>
-                  <option value="Bona Life">Bona Life</option>
-                </select>
+                <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">
+                  Preferred Provider(s) <span className="font-normal text-slate-400 text-xs">Optional — select all that apply</span>
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {[
+                    { id: 'all', label: 'All Providers', sub: 'Compare all 4' },
+                    { id: 'Metropolitan Life', label: 'Metropolitan Life', sub: 'Since 1998' },
+                    { id: 'Botswana Life', label: 'Botswana Life', sub: 'Market leader' },
+                    { id: 'Hollard Life', label: 'Hollard Life', sub: 'Innovative cover' },
+                    { id: 'Bona Life', label: 'Bona Life', sub: 'Citizen-owned' },
+                  ].map((p) => {
+                    const allProviders = ['Metropolitan Life', 'Botswana Life', 'Hollard Life', 'Bona Life'];
+                    const selected = p.id === 'all'
+                      ? (formData.providers || []).length === 4
+                      : (formData.providers || []).includes(p.id);
+                    return (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => {
+                          if (p.id === 'all') {
+                            setFormData(prev => ({ ...prev, providers: (prev.providers || []).length === 4 ? [] : [...allProviders] }));
+                          } else {
+                            setFormData(prev => {
+                              const cur = prev.providers || [];
+                              return { ...prev, providers: cur.includes(p.id) ? cur.filter(x => x !== p.id) : [...cur, p.id] };
+                            });
+                          }
+                        }}
+                        className={`p-3 rounded-xl border-2 text-left transition-all ${selected ? 'border-[#00A3E0] bg-[#00A3E0]/10' : 'border-slate-200 hover:border-[#00A3E0]/50 bg-white'} ${p.id === 'all' ? 'col-span-2' : ''}`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <div className={`w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors ${selected ? 'border-[#00A3E0] bg-[#00A3E0]' : 'border-slate-300'}`}>
+                            {selected && (
+                              <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                                <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            )}
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-[#1A4D6D] leading-tight">{p.label}</div>
+                            <div className="text-xs text-slate-400">{p.sub}</div>
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Additional Information</label>
@@ -334,15 +370,11 @@ export default function ParagonHomepage() {
               </div>
               <div className="relative h-full max-w-7xl mx-auto px-4 flex items-end md:items-center pb-24 md:pb-20 pt-8">
                 <div className="max-w-3xl">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
                     <span className="text-white">{slide.title}</span>{' '}
                     <span className="text-[#00E5FF]">{slide.titleAccent}</span>
                   </h2>
-                  <div className="inline-flex items-center gap-2 mb-5">
-                    <div className="w-1 h-8 bg-[#00A3E0] rounded-full"></div>
-                    <p className="text-xl md:text-2xl font-bold text-white">You are in safe hands</p>
-                  </div>
-                  <p className="text-base md:text-lg mb-6 text-white leading-relaxed drop-shadow-md">{slide.subtitle}</p>
+                  <p className="text-lg md:text-xl font-medium text-white/80 mb-8 drop-shadow-md tracking-wide">You are in safe hands</p>
                   <div className="flex flex-wrap gap-4">
                     <button onClick={() => setQuoteModalOpen(true)} className="bg-white text-[#00A3E0] hover:bg-cyan-50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-md hover:shadow-lg flex items-center gap-2 group">
                       {slide.cta} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -374,7 +406,7 @@ export default function ParagonHomepage() {
         </div>
       </section>
 
-      {/* ===================== PROVIDERS (moved up) ===================== */}
+      {/* ===================== PROVIDERS ===================== */}
       <section id="providers" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -421,7 +453,7 @@ export default function ParagonHomepage() {
                         </p>
                       </div>
                       <button className="w-full bg-gradient-to-r from-[#00A3E0] to-[#00B8D4] hover:from-[#0090c7] hover:to-[#00a0ba] text-white py-4 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 group relative z-10"
-                        onClick={() => { setFormData(prev => ({...prev, provider: provider.name})); setQuoteModalOpen(true); }}>
+                        onClick={() => { setFormData(prev => ({...prev, providers: [provider.name]})); setQuoteModalOpen(true); }}>
                         Get Quote from {provider.name} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>
@@ -438,7 +470,7 @@ export default function ParagonHomepage() {
         </div>
       </section>
 
-      {/* ===================== WHY CHOOSE PARAGON (moved down) ===================== */}
+      {/* ===================== WHY CHOOSE PARAGON ===================== */}
       <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
