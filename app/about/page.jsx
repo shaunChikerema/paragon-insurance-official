@@ -335,8 +335,7 @@ export default function AboutPage() {
                     <Clock size={18} className="text-[#00B8D4] mt-0.5 flex-shrink-0" />
                     <div>
                       <strong className="text-[#00B8D4]">Business Hours:</strong><br/>
-                      Mon–Fri: 8:00 AM – 5:00 PM<br/>
-                      Sat: 9:00 AM – 1:00 PM
+                      Mon–Fri: 8:00 AM – 5:00 PM
                     </div>
                   </div>
                 </li>

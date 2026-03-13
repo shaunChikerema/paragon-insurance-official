@@ -605,8 +605,7 @@ export default function ParagonHomepage() {
                 <li><a href="mailto:info@paragoninsurancebrokers.co.bw" className="hover:text-[#00B8D4] transition-colors break-all">✉️ info@paragoninsurancebrokers.co.bw</a></li>
                 <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
                   <strong className="text-[#00B8D4]">Business Hours:</strong><br/>
-                  Mon–Fri: 8:00 AM – 5:00 PM<br/>
-                  Sat: 9:00 AM – 1:00 PM
+                  Mon–Fri: 8:00 AM – 5:00 PM
                 </li>
               </ul>
             </div>

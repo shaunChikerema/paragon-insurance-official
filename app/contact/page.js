@@ -290,7 +290,7 @@ export default function ContactPage() {
             <div className="p-4 bg-slate-50 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2 text-sm text-slate-600">
                 <Clock size={16} className="text-[#00A3E0] flex-shrink-0" />
-                <span>Mon–Fri: 8AM–5PM &nbsp;|&nbsp; Sat: 9AM–1PM</span>
+                <span>Mon–Fri: 8AM–5PM</span>
               </div>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=Kgale+Terrace+Plot+140+Gaborone+International+Finance+Park+Gaborone+Botswana"
@@ -366,8 +366,7 @@ export default function ContactPage() {
                     <Clock size={18} className="text-[#00B8D4] mt-0.5 flex-shrink-0" />
                     <div>
                       <strong className="text-[#00B8D4]">Business Hours:</strong><br />
-                      Mon–Fri: 8:00 AM – 5:00 PM<br />
-                      Sat: 9:00 AM – 1:00 PM
+                      Mon–Fri: 8:00 AM – 5:00 PM
                     </div>
                   </div>
                 </li>
