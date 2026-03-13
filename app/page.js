@@ -14,7 +14,7 @@ export default function ParagonHomepage() {
     name: '',
     phone: '',
     email: '',
-    provider: 'Compare All',
+    provider: '',
     message: ''
   });
 
@@ -185,7 +185,7 @@ export default function ParagonHomepage() {
     const whatsappMessage = `Hi, I'd like a quote!%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AProvider: ${formData.provider || 'Any'}%0AMessage: ${formData.message}`;
     window.open(`https://wa.me/26771515175?text=${whatsappMessage}`, '_blank');
     setQuoteModalOpen(false);
-    setFormData({ name: '', phone: '', email: '', provider: 'Compare All', message: '' });
+    setFormData({ name: '', phone: '', email: '', provider: '', message: '' });
   };
 
   useEffect(() => {
@@ -229,8 +229,7 @@ export default function ParagonHomepage() {
               <div>
                 <label className="block text-sm font-semibold text-[#1A4D6D] mb-2">Preferred Provider (Optional)</label>
                 <select value={formData.provider} onChange={(e) => setFormData({...formData, provider: e.target.value})} className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A3E0] focus:outline-none transition-colors text-slate-900 bg-white">
-                  <option value="Compare All">Compare All Providers</option>
-                  <option disabled>──────────────</option>
+                  <option value="">Any Provider</option>
                   <option value="Metropolitan Life">Metropolitan Life</option>
                   <option value="Botswana Life">Botswana Life</option>
                   <option value="Hollard Life">Hollard Life</option>
@@ -284,7 +283,7 @@ export default function ParagonHomepage() {
       <header className="bg-white shadow-md sticky top-0 z-40 border-b border-[#00A3E0]/20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
-            <img src="/images/paragon-logo-clean.webp" alt="Paragon Insurance Brokers - You are in safe hands" className="h-16 w-auto" />
+            <img src="/images/logo/paragon-logo-clean.webp" alt="Paragon Insurance Brokers - You are in safe hands" className="h-16 w-auto" />
           </Link>
           <nav className="hidden md:flex gap-8 text-[#1A4D6D] font-semibold items-center">
             <Link href="/" className="hover:text-[#00A3E0] transition-colors relative group">
@@ -540,7 +539,7 @@ export default function ParagonHomepage() {
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div>
               <div className="mb-6">
-                <img src="/images/paragon-logo.webp" alt="Paragon Insurance Brokers" className="h-20 w-auto" />
+                <img src="/images/logo/paragon-logo.webp" alt="Paragon Insurance Brokers" className="h-20 w-auto" />
               </div>
               <p className="text-slate-300 mb-3 leading-relaxed italic">You are in safe hands</p>
               <p className="text-slate-400 text-sm">Licensed by NBFIRA</p>
