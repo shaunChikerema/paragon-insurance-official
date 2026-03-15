@@ -321,7 +321,7 @@ export default function ParagonHomepage() {
       <header className="bg-white shadow-md sticky top-0 z-40 border-b border-[#00A3E0]/20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
-            <img src="/images/logo/paragon-logo-clean.webp" alt="Paragon Insurance Brokers - You are in safe hands" className="h-16 w-auto" />
+            <img src="/images/logo/paragon-logo-transparent.png" alt="Paragon Insurance Brokers - You are in safe hands" className="h-16 w-auto" />
           </Link>
           <nav className="hidden md:flex gap-8 text-[#1A4D6D] font-semibold items-center">
             <Link href="/" className="hover:text-[#00A3E0] transition-colors relative group">
@@ -568,51 +568,51 @@ export default function ParagonHomepage() {
       </section>
 
       {/* ===================== FOOTER ===================== */}
-      <footer id="footer-contact" className="bg-gradient-to-b from-[#1A4D6D] to-[#0f3041] text-white py-16">
+      <footer id="footer-contact" className="bg-white border-t border-[#00A3E0]/20 shadow-md py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div>
               <div className="mb-6">
-                <img src="/images/logo/paragon-logo.webp" alt="Paragon Insurance Brokers" className="h-20 w-auto" />
+                <img src="/images/logo/paragon-logo-transparent.png" alt="Paragon Insurance Brokers" className="h-32 w-auto" />
               </div>
-              <p className="text-slate-300 mb-3 leading-relaxed italic">You are in safe hands</p>
+              <p className="text-slate-500 mb-3 leading-relaxed italic">You are in safe hands</p>
               <p className="text-slate-400 text-sm">Licensed by NBFIRA</p>
             </div>
             <div>
-              <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Our Partners</h4>
-              <ul className="space-y-3 text-slate-300">
-                <li className="hover:text-[#00B8D4] transition-colors">Metropolitan Life</li>
-                <li className="hover:text-[#00B8D4] transition-colors">Botswana Life</li>
-                <li className="hover:text-[#00B8D4] transition-colors">Hollard Life</li>
-                <li className="hover:text-[#00B8D4] transition-colors">Bona Life</li>
+              <h4 className="font-bold mb-6 text-[#1A4D6D] text-lg">Our Partners</h4>
+              <ul className="space-y-3 text-slate-500">
+                <li className="hover:text-[#00A3E0] transition-colors">Metropolitan Life</li>
+                <li className="hover:text-[#00A3E0] transition-colors">Botswana Life</li>
+                <li className="hover:text-[#00A3E0] transition-colors">Hollard Life</li>
+                <li className="hover:text-[#00A3E0] transition-colors">Bona Life</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-slate-300">
-                <li><Link href="/about" className="hover:text-[#00B8D4] transition-colors inline-block">About Us</Link></li>
-                <li><button onClick={() => smoothScroll('providers')} className="hover:text-[#00B8D4] transition-colors inline-block">Providers</button></li>
-                <li><Link href="/contact" className="hover:text-[#00B8D4] transition-colors inline-block">Contact</Link></li>
+              <h4 className="font-bold mb-6 text-[#1A4D6D] text-lg">Quick Links</h4>
+              <ul className="space-y-3 text-slate-500">
+                <li><Link href="/about" className="hover:text-[#00A3E0] transition-colors inline-block">About Us</Link></li>
+                <li><button onClick={() => smoothScroll('providers')} className="hover:text-[#00A3E0] transition-colors inline-block">Providers</button></li>
+                <li><Link href="/contact" className="hover:text-[#00A3E0] transition-colors inline-block">Contact</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-6 text-[#00B8D4] text-lg">Contact Us</h4>
-              <ul className="space-y-3 text-slate-300">
+              <h4 className="font-bold mb-6 text-[#1A4D6D] text-lg">Contact Us</h4>
+              <ul className="space-y-3 text-slate-500">
                 <li className="flex items-start gap-2">
-                  <span className="text-[#00B8D4] mt-1">📍</span>
+                  <span className="text-[#00A3E0] mt-1">📍</span>
                   <span>Plot 140 Unit 1, Kgale Terrace<br/>Gaborone International Finance Park<br/>Gaborone, Botswana</span>
                 </li>
-                <li><a href="tel:+2673111189" className="hover:text-[#00B8D4] transition-colors">📞 311 1189 (Office)</a></li>
-                <li><a href="https://wa.me/26771515175" className="hover:text-[#00B8D4] transition-colors">💬 +267 71 515 175 (WhatsApp)</a></li>
-                <li><a href="mailto:info@paragoninsurancebrokers.co.bw" className="hover:text-[#00B8D4] transition-colors break-all">✉️ info@paragoninsurancebrokers.co.bw</a></li>
+                <li><a href="tel:+2673111189" className="hover:text-[#00A3E0] transition-colors">📞 311 1189 (Office)</a></li>
+                <li><a href="https://wa.me/26771515175" className="hover:text-[#00A3E0] transition-colors">💬 +267 71 515 175 (WhatsApp)</a></li>
+                <li><a href="mailto:info@paragoninsurancebrokers.co.bw" className="hover:text-[#00A3E0] transition-colors break-all">✉️ info@paragoninsurancebrokers.co.bw</a></li>
                 <li className="pt-2 text-sm border-t border-[#00A3E0]/20">
-                  <strong className="text-[#00B8D4]">Business Hours:</strong><br/>
+                  <strong className="text-[#1A4D6D]">Business Hours:</strong><br/>
                   Mon–Fri: 8:00 AM – 5:00 PM
                 </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-[#00A3E0]/30 pt-8 text-center text-slate-400">
+          <div className="border-t border-[#00A3E0]/20 pt-8 text-center text-slate-400">
             <p>&copy; 2026 Paragon Insurance Brokers. Licensed by NBFIRA. All rights reserved.</p>
           </div>
         </div>
