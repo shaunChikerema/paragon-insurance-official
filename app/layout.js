@@ -16,7 +16,6 @@ export const metadata = {
   description: "Compare life insurance quotes from Botswana's top providers: Metropolitan Life, Botswana Life, Hollard Life, and Bona Life. Licensed by NBFIRA.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
       { url: "/images/logo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/images/logo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],

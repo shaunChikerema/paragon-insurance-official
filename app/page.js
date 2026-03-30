@@ -636,6 +636,18 @@ export default function ParagonHomepage() {
           </div>
           <div className="border-t border-[#00A3E0]/20 pt-8 text-center text-slate-400">
             <p>&copy; 2026 Paragon Insurance Brokers. Licensed by NBFIRA. All rights reserved.</p>
+            <p className="mt-3 text-base font-medium">
+              Made with{' '}
+              <a
+                href="https://bitroot-dev.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[#00A3E0] hover:text-[#0082b3] transition-colors group"
+              >
+                <span className="text-red-500 group-hover:scale-110 transition-transform inline-block">❤️</span>
+                <span className="font-semibold">by BITROOT</span>
+              </a>
+            </p>
           </div>
         </div>
       </footer>
